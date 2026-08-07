@@ -1,0 +1,90 @@
+{
+  "_readme": "One object per show. Past shows disappear from the site automatically — no need to delete them right away. Fields: venue (name shown big), city, date (YYYY-MM-DD), startTime24 / endTime24 (24-hour clock, endTime24 optional), address (full street address, used for the Directions link and calendar), note (one short line shown under the venue), image (path under /assets/img/shows/, optional), rsvpUrl (optional external RSVP/tickets link).",
+  "shows": [
+    {
+      "venue": "Dockside Cafe",
+      "city": "Sandusky",
+      "date": "2026-08-08",
+      "startTime24": "18:00",
+      "address": "611 W Shoreline Dr, Sandusky, OH 44870",
+      "note": "Solo on the water!",
+      "image": "/assets/img/shows/dockside-cafe-3.webp"
+    },
+    {
+      "venue": "The Orchard",
+      "city": "Port Clinton",
+      "date": "2026-08-10",
+      "startTime24": "18:00",
+      "endTime24": "22:00",
+      "address": "3350 NE Catawba Rd, Port Clinton, OH 43452",
+      "note": "Solo at one of Ohio's most amazing venues!",
+      "image": "/assets/img/shows/the-orchard-1.webp"
+    },
+    {
+      "venue": "Dockside Cafe",
+      "city": "Sandusky",
+      "date": "2026-08-23",
+      "startTime24": "14:00",
+      "address": "611 W Shoreline Dr, Sandusky, OH 44870",
+      "note": "Solo on the water!",
+      "image": "/assets/img/shows/dockside-cafe-4.webp"
+    },
+    {
+      "venue": "J Bistro",
+      "city": "Sandusky",
+      "date": "2026-08-28",
+      "startTime24": "18:00",
+      "endTime24": "22:00",
+      "address": "129 W Market St, Sandusky, OH 44870",
+      "note": "Solo",
+      "image": "/assets/img/shows/j-bistro-2.webp"
+    },
+    {
+      "venue": "Pier Pub",
+      "city": "Huron",
+      "date": "2026-08-29",
+      "startTime24": "18:00",
+      "address": "38 Main St, Huron, OH 44839",
+      "note": "Solo",
+      "image": "/assets/img/shows/pier-pub-6.webp"
+    },
+    {
+      "venue": "Put-in-Bay Brewery & Distillery",
+      "city": "Put-in-Bay",
+      "date": "2026-09-05",
+      "startTime24": "16:00",
+      "endTime24": "19:00",
+      "address": "441 Catawba Ave, Put-In-Bay, OH 43456",
+      "note": "Solo on the Island",
+      "image": "/assets/img/shows/put-in-bay-brewery-and-distillery-5.webp"
+    },
+    {
+      "venue": "The Catawba Inn",
+      "city": "Port Clinton",
+      "date": "2026-09-12",
+      "startTime24": "14:00",
+      "address": "4112 N Crogan St, Port Clinton, OH 43452",
+      "note": "Playing the patio",
+      "image": "/assets/img/shows/the-catawba-inn-1.webp"
+    },
+    {
+      "venue": "J Bistro",
+      "city": "Sandusky",
+      "date": "2026-09-18",
+      "startTime24": "18:00",
+      "endTime24": "22:00",
+      "address": "129 W Market St, Sandusky, OH 44870",
+      "note": "Solo on the patio",
+      "image": "/assets/img/shows/j-bistro-3.webp"
+    },
+    {
+      "venue": "J Bistro",
+      "city": "Sandusky",
+      "date": "2026-10-16",
+      "startTime24": "18:00",
+      "address": "129 W Market St, Sandusky, OH 44870",
+      "note": "Patio show",
+      "image": "/assets/img/shows/j-bistro-4.webp"
+    }
+  ]
+}
