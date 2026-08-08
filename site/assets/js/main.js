@@ -83,6 +83,17 @@
     if (!el.style.backgroundImage) {
       el.style.backgroundImage =
         'url("https://i.ytimg.com/vi/' + id + '/hqdefault.jpg")';
+      if (el.getAttribute('data-thumb') === 'maxres') {
+        // large embeds: swap in the 1280px thumbnail if it exists
+        // (YouTube serves a 120x90 placeholder when maxres is missing)
+        var probe = new Image();
+        probe.onload = function () {
+          if (probe.naturalWidth > 300) {
+            el.style.backgroundImage = 'url("' + probe.src + '")';
+          }
+        };
+        probe.src = 'https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg';
+      }
     }
     el.addEventListener('click', function () {
       var iframe = d.createElement('iframe');

@@ -103,7 +103,9 @@ h1, h2, h3, .display {
   font-weight: 400;
   line-height: 1.05;
   letter-spacing: 0.005em;
+  text-wrap: balance; /* avoid single-word last lines in headings */
 }
+p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 .eyebrow {
   font-family: var(--mono);
   font-size: 0.75rem;
@@ -601,15 +603,47 @@ h1, h2, h3, .display {
   border: 1px solid rgba(253, 252, 233, 0.15);
   box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.6);
 }
-.single-poster .poster-cta {
+.poster-play {
   position: absolute;
-  left: 50%;
-  bottom: 1.4rem;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  box-shadow: 0 10px 24px -8px rgba(0, 0, 0, 0.55);
+  inset: 0;
+  margin: auto;
+  width: 92px;
+  height: 92px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--brick);
+  color: var(--paper);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.6);
+  transition: background 180ms var(--ease-out), transform 180ms var(--ease-out);
 }
-.single-poster .poster-cta:hover { transform: translateX(-50%) translateY(-1px); }
+.poster-play::after {
+  content: '';
+  border-style: solid;
+  border-width: 14px 0 14px 24px;
+  border-color: transparent transparent transparent currentColor;
+  margin-left: 6px;
+}
+.poster-play::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--ember);
+  animation: play-ripple 2.6s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+  pointer-events: none;
+}
+.poster-play:hover { background: var(--ember); transform: scale(1.05); }
+@keyframes play-ripple {
+  0% { transform: scale(1); opacity: 0.9; }
+  70% { transform: scale(1.9); opacity: 0; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .poster-play::before { animation: none; opacity: 0; }
+}
 .single-title {
   font-size: clamp(2.6rem, 6vw, 4.2rem);
   line-height: 1;
@@ -1015,6 +1049,7 @@ h1, h2, h3, .display {
   background: transparent;
   width: min(960px, calc(100vw - 2rem));
   max-height: none;
+  margin: auto; /* the global margin reset removes the UA centering — restore it */
 }
 .modal::backdrop { background: rgba(20, 18, 14, 0.82); backdrop-filter: blur(4px); }
 .modal .modal-body { position: relative; }
