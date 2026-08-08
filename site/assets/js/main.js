@@ -44,30 +44,34 @@
     }
   });
 
-  /* ---------- Scroll reveal ---------- */
+  /* ---------- Scroll reveal ----------
+     Elements with .reveal rise in as they enter the viewport. Elements that
+     enter together cascade — the stagger is computed per intersection batch,
+     so cards in the same row ripple no matter how far down the page they sit. */
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function finishReveal(el) {
     el.classList.add('in');
     // drop the reveal transition once done so hover effects stay snappy
-    setTimeout(function () { el.classList.remove('reveal'); }, 1300);
+    setTimeout(function () { el.classList.remove('reveal'); }, 1400);
   }
-  // stagger reveals inside marked containers
-  d.querySelectorAll('[data-stagger]').forEach(function (wrap) {
-    wrap.querySelectorAll('.reveal').forEach(function (el, i) {
-      el.style.setProperty('--reveal-delay', Math.min(i * 70, 420) + 'ms');
-    });
-  });
-  var reveals = d.querySelectorAll('.reveal');
-  if (reveals.length && 'IntersectionObserver' in window &&
-      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    var ro = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { finishReveal(en.target); ro.unobserve(en.target); }
+  var revealObserver = null;
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    revealObserver = new IntersectionObserver(function (entries) {
+      var batch = entries.filter(function (en) { return en.isIntersecting; });
+      batch.forEach(function (en, j) {
+        en.target.style.setProperty('--reveal-delay', Math.min(j * 80, 480) + 'ms');
+        finishReveal(en.target);
+        revealObserver.unobserve(en.target);
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-    reveals.forEach(function (el) { ro.observe(el); });
-  } else {
-    reveals.forEach(function (el) { el.classList.add('in'); });
   }
+  function watchReveals(nodes) {
+    Array.prototype.forEach.call(nodes, function (el) {
+      if (revealObserver) revealObserver.observe(el);
+      else el.classList.add('in');
+    });
+  }
+  watchReveals(d.querySelectorAll('.reveal'));
 
   /* ---------- Header depth on scroll ---------- */
   var header = d.querySelector('.site-header');
@@ -356,20 +360,9 @@
           }
         }
 
-        // injected nodes were never seen by the reveal observer — reveal them
-        // with a small stagger (double rAF lets the initial styles paint first)
-        var injected = d.querySelectorAll('#gig-list-home .reveal, #gig-list-full .reveal');
-        injected.forEach(function (el, i) {
-          el.style.setProperty('--reveal-delay', Math.min(i * 60, 360) + 'ms');
-        });
-        requestAnimationFrame(function () {
-          requestAnimationFrame(function () {
-            injected.forEach(function (el) { el.classList.add('in'); });
-          });
-        });
-        setTimeout(function () {
-          injected.forEach(function (el) { el.classList.add('in'); el.classList.remove('reveal'); });
-        }, 900);
+        // hand the injected nodes to the reveal observer so they animate in
+        // on scroll, exactly like static sections
+        watchReveals(d.querySelectorAll('#gig-list-home .reveal, #gig-list-full .reveal'));
       })
       .catch(function () {
         var msg = '<li class="gig-empty">Shows couldn’t load. <a href="/shows/">Try the shows page</a> or check back shortly.</li>';

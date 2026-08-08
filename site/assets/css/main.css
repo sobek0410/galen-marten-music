@@ -1121,7 +1121,8 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 }
 .video-slide {
   flex: none;
-  width: clamp(280px, 38vw, 460px);
+  /* show two and a half slides at a time */
+  width: clamp(300px, calc((100% - 2.2rem) / 2.5), 560px);
   scroll-snap-align: start;
   transition: transform 240ms var(--ease-out);
 }
