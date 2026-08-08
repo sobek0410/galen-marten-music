@@ -58,6 +58,24 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
+  /* ---------- Hero parallax ---------- */
+  var heroBg = d.querySelector('.hero .hero-bg');
+  if (heroBg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var hero = heroBg.closest('.hero');
+    var plxQueued = false;
+    var applyPlx = function () {
+      plxQueued = false;
+      var rect = hero.getBoundingClientRect();
+      if (rect.bottom < 0) return; // hero is off-screen
+      var y = Math.max(0, -rect.top) * 0.35;
+      heroBg.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,0)';
+    };
+    window.addEventListener('scroll', function () {
+      if (!plxQueued) { plxQueued = true; requestAnimationFrame(applyPlx); }
+    }, { passive: true });
+    applyPlx();
+  }
+
   /* ---------- Lazy YouTube (click-to-load facade) ---------- */
   d.querySelectorAll('.yt-lite').forEach(function (el) {
     var id = el.getAttribute('data-yt');
