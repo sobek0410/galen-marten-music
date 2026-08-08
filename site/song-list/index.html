@@ -85,32 +85,19 @@
 
     <section class="section" style="padding-top:clamp(2rem,5vw,3.5rem)">
       <div class="wrap">
-        <label class="visually-hidden" for="song-search">Search songs and artists</label>
-        <input class="setlist-search" id="song-search" type="search" placeholder="Search a song or artist&hellip;" autocomplete="off">
-        <nav class="setlist-nav" aria-label="Genres">
-          <a href="#originals">Galen originals</a>
-          <a href="#classic-rock">Classic rock</a>
-          <a href="#country">Country</a>
-          <a href="#modern-rock">Modern rock &amp; alternative</a>
-          <a href="#americana">Americana &amp; folk</a>
-          <a href="#irish">Irish &amp; pub songs</a>
-          <a href="#oldies">Oldies &amp; classics</a>
-        </nav>
-
-        <section class="setlist-genre originals" id="originals">
-          <h2>Galen originals</h2>
-          <div class="setlist-cols">
-            <div class="artist-block"><h3>From the catalog</h3><ul>
-              <li>A Million Times</li><li>Angry</li><li>Blue</li><li>Father</li><li>The First Time</li><li>Lies</li><li>Live Free</li>
-            </ul></div>
-            <div class="artist-block"><h3>&nbsp;</h3><ul>
-              <li>Only Human</li><li>Pictures on the Wall</li><li>Ready to Burn</li><li>Revolution</li><li>Running Out</li><li>Scared</li><li>Solitude</li>
-            </ul></div>
-            <div class="artist-block"><h3>&nbsp;</h3><ul>
-              <li>Somebody</li><li>The Call</li><li>The Evil That Men Do</li><li>The Future</li><li>The Moment</li><li>What I Needed</li>
-            </ul></div>
-          </div>
-        </section>
+        <div class="setlist-controls">
+          <label class="visually-hidden" for="song-search">Search songs and artists</label>
+          <input class="setlist-search" id="song-search" type="search" placeholder="Search a song or artist&hellip;" autocomplete="off">
+          <nav class="setlist-nav" aria-label="Genres">
+            <a href="#classic-rock">Classic rock</a>
+            <a href="#country">Country</a>
+            <a href="#modern-rock">Modern rock &amp; alternative</a>
+            <a href="#americana">Americana &amp; folk</a>
+            <a href="#irish">Irish &amp; pub songs</a>
+            <a href="#oldies">Oldies &amp; classics</a>
+            <a href="#originals">Galen originals</a>
+          </nav>
+        </div>
 
         <section class="setlist-genre" id="classic-rock">
           <h2>Classic rock</h2>
@@ -230,6 +217,21 @@
             <div class="artist-block"><h3>Elvis</h3><ul><li>Can't Help Falling in Love</li><li>Suspicious Minds</li></ul></div>
             <div class="artist-block"><h3>Harold Arlen</h3><ul><li>Somewhere Over the Rainbow</li></ul></div>
             <div class="artist-block"><h3>John Lennon</h3><ul><li>So This Is Christmas</li></ul></div>
+          </div>
+        </section>
+
+        <section class="setlist-genre originals" id="originals">
+          <h2>Galen originals</h2>
+          <div class="setlist-cols">
+            <div class="artist-block"><h3>From the catalog</h3><ul>
+              <li>A Million Times</li><li>Angry</li><li>Blue</li><li>Father</li><li>The First Time</li><li>Lies</li><li>Live Free</li>
+            </ul></div>
+            <div class="artist-block"><h3>&nbsp;</h3><ul>
+              <li>Only Human</li><li>Pictures on the Wall</li><li>Ready to Burn</li><li>Revolution</li><li>Running Out</li><li>Scared</li><li>Solitude</li>
+            </ul></div>
+            <div class="artist-block"><h3>&nbsp;</h3><ul>
+              <li>Somebody</li><li>The Call</li><li>The Evil That Men Do</li><li>The Future</li><li>The Moment</li><li>What I Needed</li>
+            </ul></div>
           </div>
         </section>
 

@@ -295,8 +295,8 @@
           }
         }
 
-        // re-observe new reveal nodes
-        d.querySelectorAll('.gig.reveal:not(.in)').forEach(function (el) {
+        // injected nodes were never seen by the reveal observer — show them
+        d.querySelectorAll('#gig-list-home .reveal, #gig-list-full .reveal').forEach(function (el) {
           el.classList.add('in');
         });
       })
