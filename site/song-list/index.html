@@ -88,15 +88,18 @@
         <div class="setlist-controls">
           <label class="visually-hidden" for="song-search">Search songs and artists</label>
           <input class="setlist-search" id="song-search" type="search" placeholder="Search a song or artist&hellip;" autocomplete="off">
-          <nav class="setlist-nav" aria-label="Genres">
-            <a href="#classic-rock">Classic rock</a>
-            <a href="#country">Country</a>
-            <a href="#modern-rock">Modern rock &amp; alternative</a>
-            <a href="#americana">Americana &amp; folk</a>
-            <a href="#irish">Irish &amp; pub songs</a>
-            <a href="#oldies">Oldies &amp; classics</a>
-            <a href="#originals">Galen originals</a>
-          </nav>
+          <div class="setlist-nav-wrap">
+            <nav class="setlist-nav" aria-label="Genres">
+              <a href="#classic-rock">Classic rock</a>
+              <a href="#country">Country</a>
+              <a href="#modern-rock">Modern rock &amp; alternative</a>
+              <a href="#americana">Americana &amp; folk</a>
+              <a href="#irish">Irish &amp; pub songs</a>
+              <a href="#oldies">Oldies &amp; classics</a>
+              <a href="#originals">Galen originals</a>
+            </nav>
+            <button class="pill-arrow" type="button" aria-label="Scroll to see more categories">&rarr;</button>
+          </div>
         </div>
 
         <section class="setlist-genre reveal" id="classic-rock">

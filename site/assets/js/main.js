@@ -451,6 +451,24 @@
     update();
   });
 
+  /* ---------- Category pill scroller arrow ---------- */
+  d.querySelectorAll('.setlist-nav-wrap').forEach(function (wrap) {
+    var nav = wrap.querySelector('.setlist-nav');
+    var btn = wrap.querySelector('.pill-arrow');
+    if (!nav || !btn) return;
+    function update() {
+      var atEnd = nav.scrollLeft >= nav.scrollWidth - nav.clientWidth - 4;
+      var noOverflow = nav.scrollWidth <= nav.clientWidth + 4;
+      btn.classList.toggle('done', atEnd || noOverflow);
+    }
+    btn.addEventListener('click', function () {
+      nav.scrollBy({ left: nav.clientWidth * 0.6, behavior: 'smooth' });
+    });
+    nav.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  });
+
   /* ---------- Stat count-up ---------- */
   var statNums = d.querySelectorAll('.stat .num[data-count]');
   if (statNums.length && 'IntersectionObserver' in window &&

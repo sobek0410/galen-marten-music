@@ -955,17 +955,20 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   gap: 1.25rem;
   margin-bottom: 2.5rem;
 }
-.setlist-nav {
+.setlist-nav-wrap {
+  position: relative;
   flex: 1 1 0;
   min-width: 0; /* let the scroller shrink instead of pushing into the search bar */
+}
+.setlist-nav {
   display: flex;
   flex-wrap: nowrap;
   gap: 0.5rem;
   overflow-x: auto;
   padding-block: 0.25rem;
   scrollbar-width: none;
-  -webkit-mask: linear-gradient(90deg, transparent 0, #000 20px, #000 calc(100% - 20px), transparent 100%);
-  mask: linear-gradient(90deg, transparent 0, #000 20px, #000 calc(100% - 20px), transparent 100%);
+  -webkit-mask: linear-gradient(90deg, transparent 0, #000 20px, #000 calc(100% - 56px), transparent 100%);
+  mask: linear-gradient(90deg, transparent 0, #000 20px, #000 calc(100% - 56px), transparent 100%);
 }
 .setlist-nav::-webkit-scrollbar { display: none; }
 .setlist-nav a {
@@ -980,8 +983,31 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   transition: all 160ms;
 }
 .setlist-nav a:first-child { margin-left: 20px; } /* clear the mask fade */
-.setlist-nav a:last-child { margin-right: 20px; }
+.setlist-nav a:last-child { margin-right: 52px; } /* clear the scroll arrow */
 .setlist-nav a:hover { border-color: var(--brick); color: var(--brick); }
+.pill-arrow {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--leather);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 0.9rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: 0 4px 14px -4px rgba(36, 36, 36, 0.35);
+  transition: opacity 220ms var(--ease-out), background 180ms, color 180ms, border-color 180ms;
+}
+.pill-arrow:hover { background: var(--brick); border-color: var(--brick); color: var(--paper); }
+.pill-arrow.done { opacity: 0; pointer-events: none; }
 
 .setlist-search {
   width: 100%;
