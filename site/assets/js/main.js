@@ -58,23 +58,65 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ---------- Hero parallax ---------- */
-  var heroBg = d.querySelector('.hero .hero-bg');
-  if (heroBg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    var hero = heroBg.closest('.hero');
+  /* ---------- Hero parallax (any hero with a background image/video) ---------- */
+  var plxPairs = [];
+  d.querySelectorAll('.hero .hero-bg, .page-hero .bg').forEach(function (bg) {
+    var host = bg.closest('.hero, .page-hero');
+    if (host) plxPairs.push({ host: host, bg: bg });
+  });
+  if (plxPairs.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     var plxQueued = false;
     var applyPlx = function () {
       plxQueued = false;
-      var rect = hero.getBoundingClientRect();
-      if (rect.bottom < 0) return; // hero is off-screen
-      var y = Math.max(0, -rect.top) * 0.35;
-      heroBg.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,0)';
+      plxPairs.forEach(function (p) {
+        var rect = p.host.getBoundingClientRect();
+        if (rect.bottom < 0) return; // hero is off-screen
+        var y = Math.max(0, -rect.top) * 0.35;
+        p.bg.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,0)';
+      });
     };
     window.addEventListener('scroll', function () {
       if (!plxQueued) { plxQueued = true; requestAnimationFrame(applyPlx); }
     }, { passive: true });
     applyPlx();
   }
+
+  /* ---------- Rotating quote slider ---------- */
+  d.querySelectorAll('.quote-slider').forEach(function (slider) {
+    var slides = Array.prototype.slice.call(slider.querySelectorAll('.quote-slide'));
+    if (slides.length < 2) return;
+    var interval = parseInt(slider.getAttribute('data-interval'), 10) || 10000;
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var dotsWrap = d.createElement('div');
+    dotsWrap.className = 'quote-dots';
+    var idx = 0;
+    var timer = null;
+    var dots = slides.map(function (_, i) {
+      var b = d.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Show testimonial ' + (i + 1));
+      b.setAttribute('aria-current', i === 0 ? 'true' : 'false');
+      b.addEventListener('click', function () { go(i); restart(); });
+      dotsWrap.appendChild(b);
+      return b;
+    });
+    slider.after(dotsWrap);
+    function go(n) {
+      slides[idx].classList.remove('is-active');
+      dots[idx].setAttribute('aria-current', 'false');
+      idx = (n + slides.length) % slides.length;
+      slides[idx].classList.add('is-active');
+      dots[idx].setAttribute('aria-current', 'true');
+    }
+    function start() { if (!reduced && !timer) timer = setInterval(function () { go(idx + 1); }, interval); }
+    function stop() { clearInterval(timer); timer = null; }
+    function restart() { stop(); start(); }
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', start);
+    slider.addEventListener('focusin', stop);
+    slider.addEventListener('focusout', start);
+    start();
+  });
 
   /* ---------- Lazy YouTube (click-to-load facade) ---------- */
   d.querySelectorAll('.yt-lite').forEach(function (el) {

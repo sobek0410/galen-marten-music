@@ -827,6 +827,44 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   color: var(--ember);
 }
 
+/* Rotating quote slider */
+.quote-slider { display: grid; margin-top: 1.6rem; }
+.quote-slide {
+  grid-area: 1 / 1;
+  display: grid;
+  justify-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 700ms var(--ease-out), visibility 0s 700ms;
+}
+.quote-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 700ms var(--ease-out);
+}
+.quote-slide .who-photo {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--ember);
+  box-shadow: 0 10px 26px -10px rgba(0, 0, 0, 0.6);
+  margin-bottom: 1.5rem;
+}
+.quote-dots { display: flex; gap: 0.6rem; justify-content: center; margin-top: 2.2rem; }
+.quote-dots button {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--paper-dim);
+  background: transparent;
+  cursor: pointer;
+  transition: background 180ms, border-color 180ms;
+}
+.quote-dots button[aria-current="true"] { background: var(--ember); border-color: var(--ember); }
+.quote-dots button:hover { border-color: var(--ember); }
+
 /* ---------- Book CTA ---------- */
 .book-cta { text-align: center; }
 .book-cta .section-title { max-width: 16ch; margin-inline: auto; }
@@ -866,8 +904,14 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   overflow: hidden;
   isolation: isolate;
 }
-.page-hero .bg { position: absolute; inset: 0; z-index: -2; }
+.page-hero .bg {
+  position: absolute;
+  inset: -18% 0 0 0; /* headroom for parallax */
+  z-index: -2;
+  will-change: transform;
+}
 .page-hero .bg img, .page-hero .bg video { width: 100%; height: 100%; object-fit: cover; }
+.page-hero--image .inner { padding-block: clamp(9rem, 24vw, 17rem); }
 .page-hero::after {
   content: '';
   position: absolute;
@@ -964,10 +1008,54 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 
 /* ---------- About ---------- */
 .about-grid { display: grid; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
-@media (min-width: 900px) { .about-grid { grid-template-columns: 5fr 7fr; } }
+@media (min-width: 900px) {
+  .about-grid { grid-template-columns: 5fr 7fr; }
+  .about-grid--text-first { grid-template-columns: 7fr 5fr; }
+}
 .about-grid .photo img { border-radius: 10px; }
+.about-portrait {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 35% 15%;
+  border-radius: 10px;
+}
 .follow-band { text-align: center; }
 .follow-band .handles { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-top: 1.6rem; }
+
+/* Circular social icon buttons */
+.social-icons { display: flex; gap: 0.7rem; justify-content: flex-end; margin-top: 1rem; }
+.social-icons a {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  color: var(--ink);
+  transition: background 180ms var(--ease-out), color 180ms var(--ease-out), border-color 180ms var(--ease-out), transform 180ms var(--ease-out);
+}
+.social-icons a:hover { background: var(--brick); border-color: var(--brick); color: var(--paper); transform: translateY(-2px); }
+.social-icons svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* Instagram tile grid */
+.ig-grid {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: clamp(1.8rem, 4vw, 2.6rem);
+}
+@media (min-width: 640px) { .ig-grid { grid-template-columns: repeat(3, 1fr); } }
+.ig-grid a { display: block; border-radius: 8px; overflow: hidden; }
+.ig-grid img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  transition: transform 320ms var(--ease-out);
+}
+.ig-grid a:hover img { transform: scale(1.045); }
 
 /* ---------- News ---------- */
 .article {
