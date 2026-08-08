@@ -203,7 +203,31 @@
     return h + (m === '00' ? '' : ':' + m) + ' ' + ap;
   }
 
-  function gigHtml(show, opts) {
+  function stubHtml(dt) {
+    return '<div class="gig-stub" aria-hidden="true">' +
+      '<div class="dow">' + DOWS[dt.getDay()] + '</div>' +
+      '<div class="day">' + dt.getDate() + '</div>' +
+      '<div class="mon">' + MONTHS[dt.getMonth()].slice(0, 3) + '</div>' +
+    '</div>';
+  }
+
+  function gigInfoHtml(show, dt, timeStr) {
+    return '<p class="visually-hidden">' + esc(MONTHS[dt.getMonth()] + ' ' + dt.getDate() + ', ' + dt.getFullYear()) + '</p>' +
+      '<h3 class="gig-venue">' + esc(show.venue) + '</h3>' +
+      '<p class="gig-meta">' + esc(show.city) +
+        (timeStr ? '<span class="sep">/</span>' + esc(timeStr) : '') + '</p>' +
+      (show.note ? '<p class="gig-note">' + esc(show.note) + '</p>' : '');
+  }
+
+  function gigActionsHtml(show) {
+    return '<div class="gig-actions">' +
+      (show.rsvpUrl ? '<a class="btn btn-dark" href="' + esc(show.rsvpUrl) + '" target="_blank" rel="noopener">RSVP</a>' : '') +
+      '<a class="btn btn-dark" href="' + gcalUrl(show) + '" target="_blank" rel="noopener">Add to calendar</a>' +
+      '<a class="btn btn-quiet" href="' + mapsUrl(show) + '" target="_blank" rel="noopener">Directions</a>' +
+    '</div>';
+  }
+
+  function gigHtml(show) {
     var dt = parseLocalDate(show.date);
     var time = fmtTime(show.startTime24);
     var timeStr = time + (show.endTime24 ? '–' + fmtTime(show.endTime24) : '');
@@ -211,24 +235,23 @@
       ? '<div class="gig-art"><img src="' + esc(show.image) + '" alt="' + esc('Show art for ' + show.venue) + '" loading="lazy" width="800" height="533"></div>'
       : '';
     return '<li class="gig reveal">' +
-      '<div class="gig-stub" aria-hidden="true">' +
-        '<div class="dow">' + DOWS[dt.getDay()] + '</div>' +
-        '<div class="day">' + dt.getDate() + '</div>' +
-        '<div class="mon">' + MONTHS[dt.getMonth()].slice(0, 3) + '</div>' +
-      '</div>' +
+      stubHtml(dt) +
       img +
-      '<div class="gig-info">' +
-        '<p class="visually-hidden">' + esc(MONTHS[dt.getMonth()] + ' ' + dt.getDate() + ', ' + dt.getFullYear()) + '</p>' +
-        '<h3 class="gig-venue">' + esc(show.venue) + '</h3>' +
-        '<p class="gig-meta">' + esc(show.city) +
-          (timeStr ? '<span class="sep">/</span>' + esc(timeStr) : '') + '</p>' +
-        (show.note ? '<p class="gig-note">' + esc(show.note) + '</p>' : '') +
-      '</div>' +
-      '<div class="gig-actions">' +
-        (show.rsvpUrl ? '<a class="btn btn-dark" href="' + esc(show.rsvpUrl) + '" target="_blank" rel="noopener">RSVP</a>' : '') +
-        '<a class="btn btn-dark" href="' + gcalUrl(show) + '" target="_blank" rel="noopener">Add to calendar</a>' +
-        '<a class="btn btn-quiet" href="' + mapsUrl(show) + '" target="_blank" rel="noopener">Directions</a>' +
-      '</div>' +
+      '<div class="gig-info">' + gigInfoHtml(show, dt, timeStr) + '</div>' +
+      gigActionsHtml(show) +
+    '</li>';
+  }
+
+  function gigCardHtml(show) {
+    var dt = parseLocalDate(show.date);
+    var time = fmtTime(show.startTime24);
+    var timeStr = time + (show.endTime24 ? '–' + fmtTime(show.endTime24) : '');
+    var media = show.image
+      ? '<div class="card-media"><img src="' + esc(show.image) + '" alt="' + esc('Show art for ' + show.venue) + '" loading="lazy" width="800" height="533">' + stubHtml(dt) + '</div>'
+      : '<div class="card-media card-media--empty">' + stubHtml(dt) + '</div>';
+    return '<li class="gig-card reveal">' +
+      media +
+      '<div class="card-body">' + gigInfoHtml(show, dt, timeStr) + gigActionsHtml(show) + '</div>' +
     '</li>';
   }
 
@@ -249,7 +272,7 @@
         if (homeList) {
           var next = upcoming.slice(0, 4);
           homeList.innerHTML = next.length
-            ? next.map(function (s) { return gigHtml(s, {}); }).join('')
+            ? next.map(gigHtml).join('')
             : '<li class="gig-empty">New dates are in the works — check back soon or join the email list below.</li>';
         }
 
@@ -266,7 +289,7 @@
                 html += '<li class="gig-month" aria-hidden="true">' + key + '</li>';
                 lastMonth = key;
               }
-              html += gigHtml(s, {});
+              html += gigCardHtml(s);
             });
             fullList.innerHTML = html;
           }
