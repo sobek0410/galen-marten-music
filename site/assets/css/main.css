@@ -968,6 +968,10 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   z-index: -1;
   background: linear-gradient(180deg, rgba(36, 36, 36, 0.55), rgba(36, 36, 36, 0.28) 55%, rgba(36, 36, 36, 0.62));
 }
+/* busier hero photos get a heavier wash so the title stays readable */
+.page-hero--dim::after {
+  background: linear-gradient(180deg, rgba(36, 36, 36, 0.62), rgba(36, 36, 36, 0.48) 55%, rgba(36, 36, 36, 0.68));
+}
 .page-hero .inner {
   padding-block: clamp(4rem, 10vw, 8rem);
   text-align: center;
@@ -1169,7 +1173,9 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  padding: 0.5rem 0.25rem 1.25rem;
+  /* inset the first slide so it left-aligns with the .wrap content above */
+  padding: 0.5rem max(0.25rem, calc((100% - 1180px) / 2)) 1.25rem;
+  scroll-padding-inline: max(0.25rem, calc((100% - 1180px) / 2));
   scrollbar-width: thin;
   scrollbar-color: var(--leather) transparent;
 }
@@ -1207,7 +1213,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   .slider-arrow { display: none; }
   /* full-bleed slider: slides run to the screen edges */
   .video-slider { margin-inline: calc(-1 * var(--gutter)); }
-  .video-track { padding-inline: var(--gutter); }
+  .video-track { padding-inline: var(--gutter); scroll-padding-inline: var(--gutter); }
 }
 
 /* Spotify embeds */
