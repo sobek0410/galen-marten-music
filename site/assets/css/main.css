@@ -186,6 +186,11 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 }
 .btn:hover { transform: translateY(-1px); }
 .btn:active { transform: translateY(0); }
+.btn svg { width: 1.15em; height: 1.15em; fill: currentColor; flex: none; }
+
+/* line break that only applies on small screens */
+.m-br { display: none; }
+@media (max-width: 700px) { .m-br { display: inline; } }
 
 .btn-dark:hover { background: var(--ink); color: var(--paper); }
 .btn-light { color: var(--paper); }
@@ -377,11 +382,21 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 .nav-mobile ul a:hover { color: var(--ember); }
 .nav-mobile .sub a {
   font-family: var(--mono);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 0.8rem 0 0.8rem 1rem;
+  color: var(--paper-dim);
+  padding: 0.7rem 0 0.7rem 1.8rem;
+  border-bottom-color: rgba(253, 252, 233, 0.06);
+  position: relative;
 }
+.nav-mobile .sub a::before {
+  content: '\21B3'; /* ↳ subpage arrow */
+  position: absolute;
+  left: 0.5rem;
+  color: var(--ember);
+}
+.nav-mobile .sub a:hover { color: var(--paper); }
 .nav-mobile .mobile-cta { margin-top: 2rem; display: grid; gap: 0.8rem; }
 
 @media (min-width: 920px) {
@@ -445,6 +460,10 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   height: clamp(14px, 2.2vw, 26px);
   width: 100%;
 }
+@media (max-width: 700px) {
+  /* keep Galen in frame on narrow crops */
+  .hero .hero-bg img { object-position: 74% 51%; }
+}
 
 /* ---------- News ribbon ---------- */
 .ribbon {
@@ -477,17 +496,25 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 /* ---------- Gig board (shows) ---------- */
 .gig-list { list-style: none; padding: 0; border-top: 1px solid var(--hairline); }
 .gig {
+  position: relative;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr;
   grid-template-areas:
-    "stub art"
-    "info info"
-    "actions actions";
-  gap: 1rem 1.25rem;
-  align-items: center;
+    "art"
+    "info"
+    "actions";
+  gap: 1rem;
   padding: 1.4rem 0;
   border-bottom: 1px solid var(--hairline);
 }
+/* on small screens the date stub stamps the top-left of the full-width art */
+.gig .gig-stub {
+  position: absolute;
+  top: calc(1.4rem + 0.75rem);
+  left: 0.75rem;
+  z-index: 1;
+}
+.gig:not(:has(.gig-art)) .gig-stub { position: static; grid-area: info; justify-self: start; margin-bottom: -0.25rem; }
 .gig-stub {
   grid-area: stub;
   align-self: start;
@@ -505,7 +532,6 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 .gig-art { grid-area: art; }
 .gig-art img {
   width: 100%;
-  max-width: 380px;
   height: auto;
   aspect-ratio: 3 / 2;
   object-fit: cover;
@@ -532,7 +558,9 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
       "stub info art"
       "stub actions art";
     gap: 0.4rem 2rem;
+    align-items: center;
   }
+  .gig .gig-stub { position: static; grid-area: stub; margin-bottom: 0; }
   .gig-art img { max-width: 220px; }
   .gig-actions { margin-top: 0.9rem; }
 }
@@ -1175,7 +1203,12 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 .slider-arrow.prev { left: 0.4rem; }
 .slider-arrow.next { right: 0.4rem; }
 .slider-arrow[disabled] { opacity: 0.35; pointer-events: none; }
-@media (max-width: 700px) { .slider-arrow { display: none; } }
+@media (max-width: 700px) {
+  .slider-arrow { display: none; }
+  /* full-bleed slider: slides run to the screen edges */
+  .video-slider { margin-inline: calc(-1 * var(--gutter)); }
+  .video-track { padding-inline: var(--gutter); }
+}
 
 /* Spotify embeds */
 .spotify-artist iframe { width: 100%; height: 352px; border: 0; border-radius: 12px; display: block; }
