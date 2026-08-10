@@ -1226,9 +1226,11 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 .field textarea { min-height: 160px; resize: vertical; }
 .form-note { font-size: 0.75rem; color: var(--leather); }
 .form-success {
-  border: 1px solid var(--brick);
+  border: 1px solid var(--ember);
   border-radius: 8px;
-  background: color-mix(in srgb, var(--ember) 12%, var(--paper));
+  background: var(--ember);
+  color: var(--ink);
+  font-weight: 500;
   padding: 1.2rem 1.4rem;
 }
 
