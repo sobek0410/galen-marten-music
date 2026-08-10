@@ -63,6 +63,22 @@ No build step, no framework. Deployed via GitHub → Netlify auto-deploy; `netli
   when it sits at the top of its section).
 - YouTube embeds use the `.yt-lite` click-to-load facade (`data-yt="<video id>"`), never raw iframes.
 
+## SEO / performance conventions (keep these when editing)
+
+- Every page head carries: canonical, full OG set (incl. og:site_name + image dims),
+  twitter:title/description/image, and a JSON-LD block (WebPage; Product on merch
+  pages; MusicGroup + WebSite on home). Copy the whole head pattern for new pages.
+- `site/llms.txt`, `site/robots.txt`, `site/sitemap.xml` exist — add new pages to
+  the sitemap and llms.txt.
+- Show structured data (MusicEvent) is generated at runtime by main.js from
+  shows.json — nothing to maintain.
+- Images: webp, sized near their largest rendered size, `loading="lazy"` unless
+  above the fold (then `fetchpriority="high"`), always width/height attrs.
+  Homepage hero has a mobile srcset (`hero-1080.webp`) — regenerate both if the
+  hero image changes.
+- Cache headers live in netlify.toml: images/video 30d, css/js 1h+SWR (not
+  content-hashed — don't set immutable), HTML must-revalidate.
+
 ## Gotchas
 
 - `img { height: auto }` is set globally because width/height attributes otherwise

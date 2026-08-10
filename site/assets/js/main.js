@@ -363,6 +363,32 @@
         // hand the injected nodes to the reveal observer so they animate in
         // on scroll, exactly like static sections
         watchReveals(d.querySelectorAll('#gig-list-home .reveal, #gig-list-full .reveal'));
+
+        // structured data for search engines, generated from the live show list
+        if (fullList && upcoming.length && !d.getElementById('events-jsonld')) {
+          var events = upcoming.map(function (s) {
+            return {
+              '@type': 'MusicEvent',
+              name: 'Galen Marten Music at ' + s.venue,
+              startDate: s.date + 'T' + (s.startTime24 || '19:00') + ':00',
+              location: {
+                '@type': 'Place',
+                name: s.venue,
+                address: s.address || s.city
+              },
+              performer: { '@type': 'MusicGroup', name: 'Galen Marten Music' },
+              eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+              eventStatus: 'https://schema.org/EventScheduled',
+              image: s.image ? 'https://www.galenmartenmusic.com' + s.image : undefined,
+              description: s.note || 'Live one-man-band show by Galen Marten.'
+            };
+          });
+          var tag = d.createElement('script');
+          tag.type = 'application/ld+json';
+          tag.id = 'events-jsonld';
+          tag.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': events });
+          d.head.appendChild(tag);
+        }
       })
       .catch(function () {
         var msg = '<li class="gig-empty">Shows couldn’t load. <a href="/shows/">Try the shows page</a> or check back shortly.</li>';
