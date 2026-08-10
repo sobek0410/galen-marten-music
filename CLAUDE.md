@@ -29,21 +29,35 @@ No build step, no framework. Deployed via GitHub → Netlify auto-deploy; `netli
    stale entries are harmless; prune them occasionally.
 4. Commit. Do **not** push/deploy unless the user says to (see global instructions).
 
-## Merch / print-on-demand (important context)
+## Merch / print-on-demand (direct checkout built, needs keys to activate)
 
-- Fulfillment: **Printful**, payments: **Stripe** — both were connected through the old
-  Wix Stores setup. The product SKUs in `site/data/products.json` are Printful sync SKUs.
-- Current buy flow: product pages link to the live **Wix** product page
-  (`https://www.galenmartenmusic.com/product-page/<slug>` — every buy link carries
-  `data-product-slug`). This works only while Wix still serves that domain.
-  **Before the domain is pointed at Netlify**, either:
-  a) move the Wix store to a subdomain (e.g. `shop.galenmartenmusic.com`) and update the
-     buy hrefs, or
-  b) build direct checkout: Stripe Checkout (payment links or a Netlify Function) +
-     Printful API for order creation — needs the client's Printful API key + Stripe keys, or
-  c) create a Printful hosted "quick store" and point buy links there.
-- If you change the buy destination, update the `href`s in all `site/merch/*/index.html`
-  (grep `buy-link`).
+- Fulfillment: **Printful**, payments: **Stripe**. Direct checkout is implemented:
+  - `netlify/functions/create-checkout.mjs` — POST {variantId, quantity, slug} →
+    looks the variant up in Printful (price source of truth) → Stripe Checkout
+    Session → returns redirect URL. Flat US shipping via `SHIPPING_FLAT_CENTS`
+    (default 499 = $4.99).
+  - `netlify/functions/stripe-webhook.mjs` — verifies Stripe signature, then
+    creates the Printful order (external_id = session id, idempotent). Orders are
+    **drafts** unless `AUTO_CONFIRM_ORDERS=true`.
+  - `site/assets/js/merch.js` — product pages fetch `/data/variants.json`; if the
+    product has variants, the legacy buy link is replaced by size/color selects +
+    a Buy now button. **If variants.json is missing, pages fall back to the old
+    Wix product-page link** — nothing breaks without keys.
+  - `tools/sync-printful-variants.mjs` — generates `site/data/variants.json` from
+    the Printful store (run with PRINTFUL_API_KEY env; re-run when products change).
+- **Activation checklist** (once the client provides keys):
+  1. `netlify env:set PRINTFUL_API_KEY xxx` (+ `PRINTFUL_STORE_ID` if multi-store token)
+  2. `netlify env:set STRIPE_SECRET_KEY sk_live_...`
+  3. Create the Stripe webhook: POST /v1/webhook_endpoints for
+     `<site>/.netlify/functions/stripe-webhook`, event `checkout.session.completed`,
+     then `netlify env:set STRIPE_WEBHOOK_SECRET whsec_...`
+  4. Run the variant sync script, commit variants.json, push.
+  5. Test with Stripe test keys first; Printful orders stay drafts until
+     `AUTO_CONFIRM_ORDERS=true` is set.
+- The SKUs in `site/data/products.json` are Printful sync SKUs (Wix-era). Note:
+  the Printful store is a Wix-connected store; if the client disconnects Wix from
+  Printful, products must be recreated in a Printful "API/Manual" store and
+  variants re-synced.
 
 ## Forms
 

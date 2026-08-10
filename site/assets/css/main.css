@@ -852,6 +852,32 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 .product-info .desc { margin-top: 1.4rem; }
 .product-info .desc ul { padding-left: 1.2em; }
 .product-info .buy { margin-top: 2rem; display: grid; gap: 0.8rem; }
+.variant-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.variant-form .btn { grid-column: 1 / -1; justify-self: start; }
+.variant-form .variant-note { grid-column: 1 / -1; margin: 0; }
+.variant-form .variant-note:empty { display: none; }
+.field select {
+  width: 100%;
+  border: 1px solid var(--leather);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0.8em 1em;
+  font-size: 0.9375rem;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23735a38' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1em center;
+}
+.field select:focus {
+  outline: none;
+  border-color: var(--brick);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--ember) 35%, transparent);
+}
 .product-info .fine {
   margin-top: 1rem;
   font-size: 0.75rem;

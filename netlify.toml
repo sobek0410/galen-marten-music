@@ -2,6 +2,9 @@
 [build]
   publish = "site"
 
+[functions]
+  directory = "netlify/functions"
+
 # Long-cache fingerprint-free assets conservatively; HTML always revalidates
 [[headers]]
   for = "/assets/fonts/*"
