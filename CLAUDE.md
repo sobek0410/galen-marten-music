@@ -54,10 +54,16 @@ No build step, no framework. Deployed via GitHub → Netlify auto-deploy; `netli
   4. Run the variant sync script, commit variants.json, push.
   5. Test with Stripe test keys first; Printful orders stay drafts until
      `AUTO_CONFIRM_ORDERS=true` is set.
-- The SKUs in `site/data/products.json` are Printful sync SKUs (Wix-era). Note:
-  the Printful store is a Wix-connected store; if the client disconnects Wix from
-  Printful, products must be recreated in a Printful "API/Manual" store and
-  variants re-synced.
+- **Store migration DONE (Aug 2026):** all 9 products were cloned from the
+  Wix-connected Printful store into "Galen's API Store" (PRINTFUL_STORE_ID
+  18593964) with full variants, prices, print files, and embroidery options.
+  The new site is fully independent of Wix on the Printful side.
+  PRINTFUL_API_KEY (store-scoped) + PRINTFUL_STORE_ID are set in Netlify env.
+  Remaining to activate checkout: payment processor keys (Stripe or Square,
+  client deciding), webhook registration, then sync + commit variants.json.
+  Known issue: the API store has a duplicate "Live Free Unisex t-shirt"
+  (id 455182938, 47 variants, created manually) alongside the migrated one
+  (455190065, 45 variants) — resolve before running the variant sync for real.
 
 ## Forms
 
