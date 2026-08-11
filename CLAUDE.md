@@ -61,9 +61,8 @@ No build step, no framework. Deployed via GitHub → Netlify auto-deploy; `netli
   PRINTFUL_API_KEY (store-scoped) + PRINTFUL_STORE_ID are set in Netlify env.
   Remaining to activate checkout: payment processor keys (Stripe or Square,
   client deciding), webhook registration, then sync + commit variants.json.
-  Known issue: the API store has a duplicate "Live Free Unisex t-shirt"
-  (id 455182938, 47 variants, created manually) alongside the migrated one
-  (455190065, 45 variants) — resolve before running the variant sync for real.
+  (A manually-created duplicate Live Free tee was deleted Aug 2026; the store
+  holds exactly the 9 migrated products.)
 
 ## Forms
 
