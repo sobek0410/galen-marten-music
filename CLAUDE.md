@@ -64,6 +64,23 @@ No build step, no framework. Deployed via GitHub → Netlify auto-deploy; `netli
   (A manually-created duplicate Live Free tee was deleted Aug 2026; the store
   holds exactly the 9 migrated products.)
 
+## Newsletter / email (Resend)
+
+- List + sending: **Resend** (Galen's account). Audience "General"
+  (`f3b4c006-7e8f-4d04-9325-f428029d72be`). Env vars RESEND_API_KEY (secret)
+  + RESEND_AUDIENCE_ID are set in Netlify.
+- `netlify/functions/submission-created.mjs` auto-adds newsletter form
+  signups to the audience (booking submissions are excluded — no consent).
+  Verified end-to-end Aug 2026.
+- Composing/sending happens through the **galen-newsletter skill**
+  (~/.claude/skills/galen-newsletter): branded template, preview-first,
+  explicit approval before broadcast. Config lives in the skill dir
+  (never commit keys to this repo).
+- Domain galenmartenmusic.com is registered in Resend but NOT yet verified —
+  DNS records (DKIM TXT resend._domainkey, MX+TXT on send) need to be added
+  in GoDaddy; until then sends come from onboarding@resend.dev. After
+  verification, switch the skill config 'from' to news@galenmartenmusic.com.
+
 ## Forms
 
 - Contact form (`booking`) and newsletter (`newsletter`) are **Netlify Forms**
