@@ -1,5 +1,9 @@
 # Galen Marten Music — site repo
 
+> **Picking this up fresh?** Read [HANDOFF.md](HANDOFF.md) first — it has current
+> project state, what's still outstanding, and account/ID reference. This file
+> covers how the code works.
+
 Static site for galenmartenmusic.com (musician Galen Marten: one-man band, Ohio).
 No build step, no framework. Deployed via GitHub → Netlify auto-deploy; `netlify.toml` publishes the `site/` folder.
 
