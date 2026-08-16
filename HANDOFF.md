@@ -28,9 +28,9 @@ Keep this list current — check items off and add new ones as they come up.
 ### Blocked on Galen
 - [x] ~~Payment processor decision~~ → **Square**. Sandbox checkout is built and
       **verified end-to-end** (payment → webhook → Printful draft order).
-- [ ] **Production Square access token** (developer.squareup.com → the app →
-      Credentials, toggle to **Production**). Then follow the "Going to
-      production" steps in `CLAUDE.md` — takes ~10 minutes.
+- [x] ~~Production Square access token~~ — installed. Checkout is **live in
+      production mode** with `AUTO_CONFIRM_ORDERS=true` (orders auto-fulfill;
+      Galen has a card on file and gets email per order).
 - [ ] **GoDaddy DNS credentials** → add 3 Resend records so email can send from
       `news@galenmartenmusic.com` (records listed below). Until then Resend can
       only send test emails to `gsmarten@gmail.com`.
@@ -39,8 +39,10 @@ Keep this list current — check items off and add new ones as they come up.
 - [x] ~~Finish merch checkout~~ — done in sandbox: Square Payment Links,
       signed webhook, Printful draft orders, size/color pickers live on all 9
       product pages.
-- [ ] **Flip Square to production** (see `CLAUDE.md` → "Going to production"),
-      place one small real order, refund it, then set `AUTO_CONFIRM_ORDERS=true`.
+- [ ] **Place one real production test order** before launch (a ~$18 tee is
+      ideal — Galen orders something he wants). Proves real card → Square
+      deposit → Printful fulfillment. Safe to defer: checkout is only reachable
+      on the staging URL, so no customer can reach it until the domain moves.
 - [ ] **Verify the Resend domain** after DNS is added, then change `from` in
       `~/.claude/skills/galen-newsletter/config.json` to
       `Galen Marten Music <news@galenmartenmusic.com>`.
@@ -100,11 +102,13 @@ embroidery options intact. **Printful no longer depends on Wix.** A duplicate
 "Live Free" tee was deleted. `PRINTFUL_API_KEY` + `PRINTFUL_STORE_ID` are set in
 Netlify env.
 
-**Checkout is live on staging in Square sandbox mode.** Product pages show real
-size/color pickers driven by `site/data/variants.json`, "Buy now" opens a Square
-hosted checkout, and a completed payment creates a **draft** Printful order via
-the signed webhook. Verified end-to-end 2026-08-16 (test order deleted after).
-Only the production Square token is missing.
+**Checkout is live in Square PRODUCTION mode** (location `L1VFAPBYS526B`,
+"Galen Marten Music"). Product pages show real size/color pickers driven by
+`site/data/variants.json`, "Buy now" opens Square's hosted checkout, and a
+completed payment auto-creates a **confirmed** Printful order via the signed
+webhook — `AUTO_CONFIRM_ORDERS=true`, so it fulfills without manual approval.
+The full chain was verified in sandbox 2026-08-16. **A real-money test order is
+still outstanding** — see the to-do list.
 
 ### Email / Resend
 - Audience **"General"** — `f3b4c006-7e8f-4d04-9325-f428029d72be`

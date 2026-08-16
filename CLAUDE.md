@@ -33,10 +33,11 @@ No build step, no framework. Deployed via GitHub → Netlify auto-deploy; `netli
    stale entries are harmless; prune them occasionally.
 4. Commit. Do **not** push/deploy unless the user says to (see global instructions).
 
-## Merch / print-on-demand (LIVE in sandbox — needs production Square token)
+## Merch / print-on-demand (LIVE — production Square, auto-fulfilling)
 
 - Fulfillment: **Printful**, payments: **Square**. Direct checkout is implemented
-  and verified end-to-end in Square sandbox (Aug 2026):
+  and was verified end-to-end in sandbox (Aug 2026) before the production
+  credentials went in:
   - `netlify/functions/create-checkout.mjs` — POST {variantId, quantity, slug} →
     looks the variant up in Printful (price source of truth) → Square hosted
     Payment Link → returns redirect URL. Printful variant/slug/qty ride along in
@@ -56,20 +57,24 @@ No build step, no framework. Deployed via GitHub → Netlify auto-deploy; `netli
   - `tools/sync-printful-variants.mjs` — generates `site/data/variants.json` from
     the Printful store (run with PRINTFUL_API_KEY env; re-run when products change).
 - **Env vars set in Netlify:** `PRINTFUL_API_KEY`, `PRINTFUL_STORE_ID`,
-  `SQUARE_ACCESS_TOKEN`, `SQUARE_LOCATION_ID`, `SQUARE_WEBHOOK_SIGNATURE_KEY`,
-  `SQUARE_WEBHOOK_URL`, `SQUARE_ENV` (currently `sandbox`).
-- **Going to production** (needs Galen's production Square access token):
-  1. `netlify env:set SQUARE_ACCESS_TOKEN <prod token> --secret --context production --context deploy-preview --context branch-deploy`
-  2. `netlify env:set SQUARE_ENV production`
-  3. Get the production location id: `GET https://connect.squareup.com/v2/locations`
-     → `netlify env:set SQUARE_LOCATION_ID <id>`
-  4. Create a **production** webhook subscription (`POST /v2/webhooks/subscriptions`,
-     event `payment.updated`, notification_url = the production
-     `/.netlify/functions/square-webhook`) → set the returned `signature_key` as
-     `SQUARE_WEBHOOK_SIGNATURE_KEY`, and update `SQUARE_WEBHOOK_URL` to match.
-  5. Place one small real order, confirm the Printful draft, then refund it.
-  6. Only then `netlify env:set AUTO_CONFIRM_ORDERS true` so orders auto-fulfill.
-- Sandbox webhook subscription id: `wbhk_0b336a6bd6df4b99bb8a7e662e78adc3`.
+  `SQUARE_ACCESS_TOKEN` (production), `SQUARE_LOCATION_ID` (`L1VFAPBYS526B`),
+  `SQUARE_WEBHOOK_SIGNATURE_KEY`, `SQUARE_WEBHOOK_URL`, `SQUARE_ENV`
+  (`production`), `AUTO_CONFIRM_ORDERS` (`true`).
+- **`AUTO_CONFIRM_ORDERS=true`** — orders go straight to fulfillment, no manual
+  approval. Deliberate: Galen doesn't monitor the Printful dashboard, so drafts
+  would rot and customers would pay for nothing. He has a card on file and
+  Printful auto-deposits to his wallet, so confirmed orders charge cleanly.
+  Oversight comes from email: Printful mails him per order, Square per payment.
+  A Square payment email with no matching Printful email = something broke.
+- **Square webhook subscriptions:** production
+  `wbhk_edc219c05850457c8ea53a82fc726b82`, sandbox
+  `wbhk_0b336a6bd6df4b99bb8a7e662e78adc3`. Both notify the *staging*
+  netlify.app function URL, which keeps working after the domain cutover — but
+  if it's ever changed, update BOTH the Square subscription and the
+  `SQUARE_WEBHOOK_URL` env var (signature verification hashes that exact URL).
+- **NOT yet done: one real production test order.** Checkout is only reachable
+  on the staging URL, so no customer can hit it before cutover. Place one small
+  real order before launch to prove the chain with real money.
 - Re-run `PRINTFUL_API_KEY=… node tools/sync-printful-variants.mjs` and commit
   `site/data/variants.json` whenever products change in Printful.
 - **Store migration DONE (Aug 2026):** all 9 products were cloned from the
