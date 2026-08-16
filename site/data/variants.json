@@ -1,0 +1,1912 @@
+{
+ "unisex-hoodie": {
+  "printful_product_id": 455190394,
+  "name": "Guitar Pick Unisex Hoodie",
+  "variants": [
+   {
+    "id": 5435465353,
+    "sku": null,
+    "color": "Black",
+    "size": "S",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465357,
+    "sku": null,
+    "color": "Black",
+    "size": "M",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465360,
+    "sku": null,
+    "color": "Black",
+    "size": "L",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465362,
+    "sku": null,
+    "color": "Black",
+    "size": "XL",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465365,
+    "sku": null,
+    "color": "Black",
+    "size": "2XL",
+    "price": "37.64",
+    "availability": "active"
+   },
+   {
+    "id": 5435465366,
+    "sku": null,
+    "color": "Black",
+    "size": "3XL",
+    "price": "40.24",
+    "availability": "active"
+   },
+   {
+    "id": 5435465367,
+    "sku": null,
+    "color": "Navy Blazer",
+    "size": "S",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465368,
+    "sku": null,
+    "color": "Navy Blazer",
+    "size": "M",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465369,
+    "sku": null,
+    "color": "Navy Blazer",
+    "size": "L",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465370,
+    "sku": null,
+    "color": "Navy Blazer",
+    "size": "XL",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465371,
+    "sku": null,
+    "color": "Navy Blazer",
+    "size": "2XL",
+    "price": "37.64",
+    "availability": "active"
+   },
+   {
+    "id": 5435465372,
+    "sku": null,
+    "color": "Navy Blazer",
+    "size": "3XL",
+    "price": "40.24",
+    "availability": "active"
+   },
+   {
+    "id": 5435465373,
+    "sku": null,
+    "color": "Charcoal Heather",
+    "size": "S",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465374,
+    "sku": null,
+    "color": "Charcoal Heather",
+    "size": "M",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465375,
+    "sku": null,
+    "color": "Charcoal Heather",
+    "size": "L",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465376,
+    "sku": null,
+    "color": "Charcoal Heather",
+    "size": "XL",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465377,
+    "sku": null,
+    "color": "Charcoal Heather",
+    "size": "2XL",
+    "price": "37.64",
+    "availability": "active"
+   },
+   {
+    "id": 5435465378,
+    "sku": null,
+    "color": "Charcoal Heather",
+    "size": "3XL",
+    "price": "40.24",
+    "availability": "active"
+   },
+   {
+    "id": 5435465379,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "S",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465380,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "M",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465381,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "L",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465382,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "XL",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465383,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "2XL",
+    "price": "37.64",
+    "availability": "active"
+   },
+   {
+    "id": 5435465384,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "3XL",
+    "price": "40.24",
+    "availability": "active"
+   },
+   {
+    "id": 5435465385,
+    "sku": null,
+    "color": "Military Green",
+    "size": "S",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465386,
+    "sku": null,
+    "color": "Military Green",
+    "size": "M",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465389,
+    "sku": null,
+    "color": "Military Green",
+    "size": "L",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465394,
+    "sku": null,
+    "color": "Military Green",
+    "size": "XL",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465398,
+    "sku": null,
+    "color": "Military Green",
+    "size": "2XL",
+    "price": "37.64",
+    "availability": "active"
+   },
+   {
+    "id": 5435465403,
+    "sku": null,
+    "color": "Military Green",
+    "size": "3XL",
+    "price": "40.24",
+    "availability": "active"
+   },
+   {
+    "id": 5435465407,
+    "sku": null,
+    "color": "Carbon Grey",
+    "size": "S",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465411,
+    "sku": null,
+    "color": "Carbon Grey",
+    "size": "M",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465415,
+    "sku": null,
+    "color": "Carbon Grey",
+    "size": "L",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465419,
+    "sku": null,
+    "color": "Carbon Grey",
+    "size": "XL",
+    "price": "35.04",
+    "availability": "active"
+   },
+   {
+    "id": 5435465423,
+    "sku": null,
+    "color": "Carbon Grey",
+    "size": "2XL",
+    "price": "37.64",
+    "availability": "active"
+   },
+   {
+    "id": 5435465428,
+    "sku": null,
+    "color": "Carbon Grey",
+    "size": "3XL",
+    "price": "40.24",
+    "availability": "active"
+   }
+  ]
+ },
+ "unisex-t-shirt": {
+  "printful_product_id": 455190377,
+  "name": "Guitar Pick Unisex t-shirt",
+  "variants": [
+   {
+    "id": 5435465033,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "XS",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465034,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "S",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465035,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "M",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465036,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "L",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465037,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "XL",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465038,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "2XL",
+    "price": "17.80",
+    "availability": "active"
+   },
+   {
+    "id": 5435465039,
+    "sku": null,
+    "color": "Heather Emerald",
+    "size": "XS",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465040,
+    "sku": null,
+    "color": "Heather Emerald",
+    "size": "S",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465041,
+    "sku": null,
+    "color": "Heather Emerald",
+    "size": "M",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465042,
+    "sku": null,
+    "color": "Heather Emerald",
+    "size": "L",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465043,
+    "sku": null,
+    "color": "Heather Emerald",
+    "size": "XL",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465044,
+    "sku": null,
+    "color": "Heather Emerald",
+    "size": "2XL",
+    "price": "17.80",
+    "availability": "active"
+   },
+   {
+    "id": 5435465045,
+    "sku": null,
+    "color": "Dark Grey",
+    "size": "XS",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465046,
+    "sku": null,
+    "color": "Dark Grey",
+    "size": "S",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465051,
+    "sku": null,
+    "color": "Dark Grey",
+    "size": "M",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465055,
+    "sku": null,
+    "color": "Dark Grey",
+    "size": "L",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465056,
+    "sku": null,
+    "color": "Dark Grey",
+    "size": "XL",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465057,
+    "sku": null,
+    "color": "Dark Grey",
+    "size": "2XL",
+    "price": "17.80",
+    "availability": "active"
+   },
+   {
+    "id": 5435465058,
+    "sku": null,
+    "color": "Heather Navy",
+    "size": "XS",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465059,
+    "sku": null,
+    "color": "Heather Navy",
+    "size": "S",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465060,
+    "sku": null,
+    "color": "Heather Navy",
+    "size": "M",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465061,
+    "sku": null,
+    "color": "Heather Navy",
+    "size": "L",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465062,
+    "sku": null,
+    "color": "Heather Navy",
+    "size": "XL",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465063,
+    "sku": null,
+    "color": "Heather Navy",
+    "size": "2XL",
+    "price": "17.80",
+    "availability": "active"
+   },
+   {
+    "id": 5435465064,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "XS",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465065,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "S",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465066,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "M",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465067,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "L",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465068,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "XL",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465081,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "2XL",
+    "price": "17.80",
+    "availability": "active"
+   },
+   {
+    "id": 5435465111,
+    "sku": null,
+    "color": "Military Green",
+    "size": "XS",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465127,
+    "sku": null,
+    "color": "Military Green",
+    "size": "S",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465128,
+    "sku": null,
+    "color": "Military Green",
+    "size": "M",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465129,
+    "sku": null,
+    "color": "Military Green",
+    "size": "L",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465130,
+    "sku": null,
+    "color": "Military Green",
+    "size": "XL",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465131,
+    "sku": null,
+    "color": "Military Green",
+    "size": "2XL",
+    "price": "17.80",
+    "availability": "active"
+   },
+   {
+    "id": 5435465132,
+    "sku": null,
+    "color": "Asphalt",
+    "size": "S",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465133,
+    "sku": null,
+    "color": "Asphalt",
+    "size": "M",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465134,
+    "sku": null,
+    "color": "Asphalt",
+    "size": "L",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465135,
+    "sku": null,
+    "color": "Asphalt",
+    "size": "XL",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465136,
+    "sku": null,
+    "color": "Asphalt",
+    "size": "2XL",
+    "price": "17.80",
+    "availability": "active"
+   },
+   {
+    "id": 5435465137,
+    "sku": null,
+    "color": "Army",
+    "size": "S",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465138,
+    "sku": null,
+    "color": "Army",
+    "size": "M",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465139,
+    "sku": null,
+    "color": "Army",
+    "size": "L",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465140,
+    "sku": null,
+    "color": "Army",
+    "size": "XL",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465141,
+    "sku": null,
+    "color": "Army",
+    "size": "2XL",
+    "price": "17.80",
+    "availability": "active"
+   },
+   {
+    "id": 5435465142,
+    "sku": null,
+    "color": "Heather Slate",
+    "size": "XS",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465143,
+    "sku": null,
+    "color": "Heather Slate",
+    "size": "S",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465144,
+    "sku": null,
+    "color": "Heather Slate",
+    "size": "M",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465145,
+    "sku": null,
+    "color": "Heather Slate",
+    "size": "L",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465146,
+    "sku": null,
+    "color": "Heather Slate",
+    "size": "XL",
+    "price": "15.20",
+    "availability": "active"
+   },
+   {
+    "id": 5435465147,
+    "sku": null,
+    "color": "Heather Slate",
+    "size": "2XL",
+    "price": "17.80",
+    "availability": "active"
+   }
+  ]
+ },
+ "unisex-premium-sweatshirt": {
+  "printful_product_id": 455190360,
+  "name": "Guitar Pick Premium Sweatshirt (Unisex)",
+  "variants": [
+   {
+    "id": 5435464871,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "S",
+    "price": "34.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464873,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "M",
+    "price": "34.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464874,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "L",
+    "price": "34.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464876,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "XL",
+    "price": "34.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464877,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "2XL",
+    "price": "37.00",
+    "availability": "active"
+   }
+  ]
+ },
+ "dad-hat": {
+  "printful_product_id": 455190323,
+  "name": "Guitar Pick Logo Printed Hat",
+  "variants": [
+   {
+    "id": 5435464657,
+    "sku": null,
+    "color": "Dark Grey",
+    "size": "One size",
+    "price": "18.00",
+    "availability": "active"
+   }
+  ]
+ },
+ "unisex-t-shirt-1": {
+  "printful_product_id": 455190290,
+  "name": "\"I wrote that song\" Unisex t-shirt",
+  "variants": [
+   {
+    "id": 5435464090,
+    "sku": null,
+    "color": "Black Heather",
+    "size": "XS",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464100,
+    "sku": null,
+    "color": "Black Heather",
+    "size": "S",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464101,
+    "sku": null,
+    "color": "Black Heather",
+    "size": "M",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464102,
+    "sku": null,
+    "color": "Black Heather",
+    "size": "L",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464103,
+    "sku": null,
+    "color": "Black Heather",
+    "size": "XL",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464104,
+    "sku": null,
+    "color": "Black Heather",
+    "size": "2XL",
+    "price": "21.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464105,
+    "sku": null,
+    "color": "Black Heather",
+    "size": "3XL",
+    "price": "24.00",
+    "availability": "active"
+   },
+   {
+    "id": 5435464113,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "XS",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464114,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "S",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464115,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "M",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464116,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "L",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464117,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "XL",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464118,
+    "sku": null,
+    "color": "Vintage Black",
+    "size": "2XL",
+    "price": "21.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464119,
+    "sku": null,
+    "color": "Heather Emerald",
+    "size": "XS",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464120,
+    "sku": null,
+    "color": "Heather Emerald",
+    "size": "S",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464121,
+    "sku": null,
+    "color": "Heather Emerald",
+    "size": "M",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464126,
+    "sku": null,
+    "color": "Heather Emerald",
+    "size": "L",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464127,
+    "sku": null,
+    "color": "Heather Emerald",
+    "size": "XL",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464128,
+    "sku": null,
+    "color": "Heather Emerald",
+    "size": "2XL",
+    "price": "21.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464129,
+    "sku": null,
+    "color": "Heather Emerald",
+    "size": "3XL",
+    "price": "24.00",
+    "availability": "active"
+   },
+   {
+    "id": 5435464130,
+    "sku": null,
+    "color": "Brown",
+    "size": "S",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464131,
+    "sku": null,
+    "color": "Brown",
+    "size": "M",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464132,
+    "sku": null,
+    "color": "Brown",
+    "size": "L",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464135,
+    "sku": null,
+    "color": "Brown",
+    "size": "XL",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464136,
+    "sku": null,
+    "color": "Brown",
+    "size": "2XL",
+    "price": "21.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464137,
+    "sku": null,
+    "color": "Dark Grey",
+    "size": "XS",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464138,
+    "sku": null,
+    "color": "Dark Grey",
+    "size": "S",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464139,
+    "sku": null,
+    "color": "Dark Grey",
+    "size": "M",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464140,
+    "sku": null,
+    "color": "Dark Grey",
+    "size": "L",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464141,
+    "sku": null,
+    "color": "Dark Grey",
+    "size": "XL",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464148,
+    "sku": null,
+    "color": "Dark Grey",
+    "size": "2XL",
+    "price": "21.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464149,
+    "sku": null,
+    "color": "Heather Navy",
+    "size": "XS",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464151,
+    "sku": null,
+    "color": "Heather Navy",
+    "size": "S",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464153,
+    "sku": null,
+    "color": "Heather Navy",
+    "size": "M",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464155,
+    "sku": null,
+    "color": "Heather Navy",
+    "size": "L",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464158,
+    "sku": null,
+    "color": "Heather Navy",
+    "size": "XL",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464165,
+    "sku": null,
+    "color": "Heather Navy",
+    "size": "2XL",
+    "price": "21.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464182,
+    "sku": null,
+    "color": "Heather Navy",
+    "size": "3XL",
+    "price": "24.00",
+    "availability": "active"
+   },
+   {
+    "id": 5435464198,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "XS",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464200,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "S",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464202,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "M",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464204,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "L",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464206,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "XL",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464207,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "2XL",
+    "price": "21.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464210,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "3XL",
+    "price": "24.00",
+    "availability": "active"
+   },
+   {
+    "id": 5435464233,
+    "sku": null,
+    "color": "Military Green",
+    "size": "XS",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464250,
+    "sku": null,
+    "color": "Military Green",
+    "size": "S",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464269,
+    "sku": null,
+    "color": "Military Green",
+    "size": "M",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464282,
+    "sku": null,
+    "color": "Military Green",
+    "size": "L",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464284,
+    "sku": null,
+    "color": "Military Green",
+    "size": "XL",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464291,
+    "sku": null,
+    "color": "Military Green",
+    "size": "2XL",
+    "price": "21.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464292,
+    "sku": null,
+    "color": "Military Green",
+    "size": "3XL",
+    "price": "24.00",
+    "availability": "active"
+   },
+   {
+    "id": 5435464294,
+    "sku": null,
+    "color": "Asphalt",
+    "size": "S",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464295,
+    "sku": null,
+    "color": "Asphalt",
+    "size": "M",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464297,
+    "sku": null,
+    "color": "Asphalt",
+    "size": "L",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464299,
+    "sku": null,
+    "color": "Asphalt",
+    "size": "XL",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464300,
+    "sku": null,
+    "color": "Asphalt",
+    "size": "2XL",
+    "price": "21.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464303,
+    "sku": null,
+    "color": "Asphalt",
+    "size": "3XL",
+    "price": "24.00",
+    "availability": "active"
+   },
+   {
+    "id": 5435464309,
+    "sku": null,
+    "color": "Heather Olive",
+    "size": "XS",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464318,
+    "sku": null,
+    "color": "Heather Olive",
+    "size": "S",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464348,
+    "sku": null,
+    "color": "Heather Olive",
+    "size": "M",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464354,
+    "sku": null,
+    "color": "Heather Olive",
+    "size": "L",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464360,
+    "sku": null,
+    "color": "Heather Olive",
+    "size": "XL",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464365,
+    "sku": null,
+    "color": "Heather Olive",
+    "size": "2XL",
+    "price": "21.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464375,
+    "sku": null,
+    "color": "Heather Olive",
+    "size": "3XL",
+    "price": "24.00",
+    "availability": "active"
+   },
+   {
+    "id": 5435464379,
+    "sku": null,
+    "color": "Heather Brown",
+    "size": "XS",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464380,
+    "sku": null,
+    "color": "Heather Brown",
+    "size": "S",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464383,
+    "sku": null,
+    "color": "Heather Brown",
+    "size": "M",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464384,
+    "sku": null,
+    "color": "Heather Brown",
+    "size": "L",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464385,
+    "sku": null,
+    "color": "Heather Brown",
+    "size": "XL",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464386,
+    "sku": null,
+    "color": "Heather Brown",
+    "size": "2XL",
+    "price": "21.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464387,
+    "sku": null,
+    "color": "Heather Brown",
+    "size": "3XL",
+    "price": "24.00",
+    "availability": "active"
+   },
+   {
+    "id": 5435464388,
+    "sku": null,
+    "color": "Heather Clay",
+    "size": "XS",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464389,
+    "sku": null,
+    "color": "Heather Clay",
+    "size": "S",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464391,
+    "sku": null,
+    "color": "Heather Clay",
+    "size": "M",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464392,
+    "sku": null,
+    "color": "Heather Clay",
+    "size": "L",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464393,
+    "sku": null,
+    "color": "Heather Clay",
+    "size": "XL",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464394,
+    "sku": null,
+    "color": "Heather Clay",
+    "size": "2XL",
+    "price": "21.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464395,
+    "sku": null,
+    "color": "Army",
+    "size": "S",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464396,
+    "sku": null,
+    "color": "Army",
+    "size": "M",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464397,
+    "sku": null,
+    "color": "Army",
+    "size": "L",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464398,
+    "sku": null,
+    "color": "Army",
+    "size": "XL",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464399,
+    "sku": null,
+    "color": "Army",
+    "size": "2XL",
+    "price": "21.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464418,
+    "sku": null,
+    "color": "Army",
+    "size": "3XL",
+    "price": "24.00",
+    "availability": "active"
+   },
+   {
+    "id": 5435464461,
+    "sku": null,
+    "color": "Heather Slate",
+    "size": "XS",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464464,
+    "sku": null,
+    "color": "Heather Slate",
+    "size": "S",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464465,
+    "sku": null,
+    "color": "Heather Slate",
+    "size": "M",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464466,
+    "sku": null,
+    "color": "Heather Slate",
+    "size": "L",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464467,
+    "sku": null,
+    "color": "Heather Slate",
+    "size": "XL",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435464468,
+    "sku": null,
+    "color": "Heather Slate",
+    "size": "2XL",
+    "price": "21.50",
+    "availability": "active"
+   }
+  ]
+ },
+ "dad-hat-1": {
+  "printful_product_id": 455190112,
+  "name": "Galen Marten Music Embroidered Hat",
+  "variants": [
+   {
+    "id": 5435462557,
+    "sku": null,
+    "color": "Dark Grey",
+    "size": "One size",
+    "price": "19.50",
+    "availability": "active"
+   }
+  ]
+ },
+ "live-free-unisex-t-shirt": {
+  "printful_product_id": 455190065,
+  "name": "Live Free Unisex t-shirt",
+  "variants": [
+   {
+    "id": 5435462236,
+    "sku": null,
+    "color": "Navy",
+    "size": "XS",
+    "price": "19.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462238,
+    "sku": null,
+    "color": "Navy",
+    "size": "S",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462239,
+    "sku": null,
+    "color": "Navy",
+    "size": "M",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462240,
+    "sku": null,
+    "color": "Navy",
+    "size": "L",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462241,
+    "sku": null,
+    "color": "Navy",
+    "size": "XL",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462242,
+    "sku": null,
+    "color": "Navy",
+    "size": "2XL",
+    "price": "21.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462243,
+    "sku": null,
+    "color": "Navy",
+    "size": "3XL",
+    "price": "24.00",
+    "availability": "active"
+   },
+   {
+    "id": 5435462244,
+    "sku": null,
+    "color": "Navy",
+    "size": "4XL",
+    "price": "26.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462253,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "XS",
+    "price": "19.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462282,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "S",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462283,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "M",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462284,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "L",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462285,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "XL",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462286,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "2XL",
+    "price": "21.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462287,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "3XL",
+    "price": "24.00",
+    "availability": "active"
+   },
+   {
+    "id": 5435462288,
+    "sku": null,
+    "color": "Dark Grey Heather",
+    "size": "4XL",
+    "price": "26.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462290,
+    "sku": null,
+    "color": "Military Green",
+    "size": "XS",
+    "price": "19.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462291,
+    "sku": null,
+    "color": "Military Green",
+    "size": "S",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462292,
+    "sku": null,
+    "color": "Military Green",
+    "size": "M",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462293,
+    "sku": null,
+    "color": "Military Green",
+    "size": "L",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462294,
+    "sku": null,
+    "color": "Military Green",
+    "size": "XL",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462295,
+    "sku": null,
+    "color": "Military Green",
+    "size": "2XL",
+    "price": "21.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462298,
+    "sku": null,
+    "color": "Military Green",
+    "size": "3XL",
+    "price": "24.00",
+    "availability": "active"
+   },
+   {
+    "id": 5435462301,
+    "sku": null,
+    "color": "Military Green",
+    "size": "4XL",
+    "price": "26.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462303,
+    "sku": null,
+    "color": "Asphalt",
+    "size": "S",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462304,
+    "sku": null,
+    "color": "Asphalt",
+    "size": "M",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462305,
+    "sku": null,
+    "color": "Asphalt",
+    "size": "L",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462307,
+    "sku": null,
+    "color": "Asphalt",
+    "size": "XL",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462308,
+    "sku": null,
+    "color": "Asphalt",
+    "size": "2XL",
+    "price": "21.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462311,
+    "sku": null,
+    "color": "Asphalt",
+    "size": "3XL",
+    "price": "24.00",
+    "availability": "active"
+   },
+   {
+    "id": 5435462313,
+    "sku": null,
+    "color": "Asphalt",
+    "size": "4XL",
+    "price": "26.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462314,
+    "sku": null,
+    "color": "Heather Slate",
+    "size": "XS",
+    "price": "19.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462315,
+    "sku": null,
+    "color": "Heather Slate",
+    "size": "S",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462316,
+    "sku": null,
+    "color": "Heather Slate",
+    "size": "M",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462317,
+    "sku": null,
+    "color": "Heather Slate",
+    "size": "L",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462318,
+    "sku": null,
+    "color": "Heather Slate",
+    "size": "XL",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462328,
+    "sku": null,
+    "color": "Heather Slate",
+    "size": "2XL",
+    "price": "21.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462332,
+    "sku": null,
+    "color": "Steel Blue",
+    "size": "XS",
+    "price": "19.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462333,
+    "sku": null,
+    "color": "Steel Blue",
+    "size": "S",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462334,
+    "sku": null,
+    "color": "Steel Blue",
+    "size": "M",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462335,
+    "sku": null,
+    "color": "Steel Blue",
+    "size": "L",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462336,
+    "sku": null,
+    "color": "Steel Blue",
+    "size": "XL",
+    "price": "18.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462338,
+    "sku": null,
+    "color": "Steel Blue",
+    "size": "2XL",
+    "price": "21.50",
+    "availability": "active"
+   },
+   {
+    "id": 5435462342,
+    "sku": null,
+    "color": "Steel Blue",
+    "size": "3XL",
+    "price": "24.00",
+    "availability": "active"
+   },
+   {
+    "id": 5435462343,
+    "sku": null,
+    "color": "Steel Blue",
+    "size": "4XL",
+    "price": "26.50",
+    "availability": "active"
+   }
+  ]
+ },
+ "trucker-cap": {
+  "printful_product_id": 455189892,
+  "name": "Galen Marten Music Grey Trucker Cap",
+  "variants": [
+   {
+    "id": 5435461289,
+    "sku": null,
+    "color": null,
+    "size": null,
+    "price": "23.50",
+    "availability": "active"
+   }
+  ]
+ },
+ "live-free-waffle-beanie": {
+  "printful_product_id": 455189872,
+  "name": "LIVE FREE Waffle beanie",
+  "variants": [
+   {
+    "id": 5435461086,
+    "sku": null,
+    "color": "Birch",
+    "size": "One size",
+    "price": "21.50",
+    "availability": "active"
+   }
+  ]
+ }
+}

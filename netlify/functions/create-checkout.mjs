@@ -1,11 +1,15 @@
 // POST /.netlify/functions/create-checkout
 // Body: { variantId: <printful sync_variant_id>, quantity?: number, slug: "<product slug>" }
-// Looks the variant up in Printful (source of truth for price/name — never
-// trusts client-supplied prices), creates a Stripe Checkout Session, and
-// returns { url } to redirect the buyer to.
 //
-// Env vars (set in Netlify): PRINTFUL_API_KEY, STRIPE_SECRET_KEY,
-// optional PRINTFUL_STORE_ID, SHIPPING_FLAT_CENTS (default 499).
+// Looks the variant up in Printful (price source of truth — never trusts a
+// client-supplied price), then creates a Square hosted Payment Link and returns
+// { url } for the browser to redirect to. Square collects card / Apple Pay /
+// Google Pay / Cash App Pay and the shipping address; the square-webhook
+// function turns the completed payment into a Printful order.
+//
+// Env vars: PRINTFUL_API_KEY, SQUARE_ACCESS_TOKEN, SQUARE_LOCATION_ID
+// Optional: PRINTFUL_STORE_ID, SHIPPING_FLAT_CENTS (default 499),
+//           SQUARE_ENV ("sandbox" | "production", default sandbox)
 
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body), {
@@ -13,12 +17,16 @@ const json = (body, status = 200) =>
     headers: { 'Content-Type': 'application/json' },
   });
 
+const squareBase = () =>
+  process.env.SQUARE_ENV === 'production'
+    ? 'https://connect.squareup.com'
+    : 'https://connect.squareupsandbox.com';
+
 export default async (req) => {
   if (req.method !== 'POST') return json({ error: 'Method not allowed' }, 405);
 
-  const PRINTFUL_API_KEY = process.env.PRINTFUL_API_KEY;
-  const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
-  if (!PRINTFUL_API_KEY || !STRIPE_SECRET_KEY) {
+  const { PRINTFUL_API_KEY, SQUARE_ACCESS_TOKEN, SQUARE_LOCATION_ID } = process.env;
+  if (!PRINTFUL_API_KEY || !SQUARE_ACCESS_TOKEN || !SQUARE_LOCATION_ID) {
     return json({ error: 'Checkout is not configured yet' }, 503);
   }
 
@@ -33,54 +41,71 @@ export default async (req) => {
   const slug = String(body.slug || '').replace(/[^a-z0-9-]/g, '');
   if (!variantId) return json({ error: 'Missing variant' }, 400);
 
-  // --- look up the variant in Printful ---
+  // --- price + name from Printful ---
   const pfHeaders = { Authorization: `Bearer ${PRINTFUL_API_KEY}` };
   if (process.env.PRINTFUL_STORE_ID) pfHeaders['X-PF-Store-Id'] = process.env.PRINTFUL_STORE_ID;
-  const vres = await fetch(`https://api.printful.com/store/variants/${variantId}`, { headers: pfHeaders });
+  const vres = await fetch(`https://api.printful.com/store/variants/${variantId}`, {
+    headers: pfHeaders,
+  });
   if (!vres.ok) return json({ error: 'Unknown product variant' }, 400);
   const variant = (await vres.json()).result;
   const unitAmount = Math.round(parseFloat(variant.retail_price) * 100);
   if (!unitAmount || unitAmount < 50) return json({ error: 'Variant has no price' }, 400);
-  const preview = (variant.files || []).find((f) => f.type === 'preview');
 
-  // --- create the Stripe Checkout Session ---
+  // --- Square payment link ---
   const site = process.env.URL || 'https://galen-marten-music-staging.netlify.app';
-  const p = new URLSearchParams();
-  p.append('mode', 'payment');
-  p.append('success_url', `${site}/merch/thanks/?session_id={CHECKOUT_SESSION_ID}`);
-  p.append('cancel_url', slug ? `${site}/merch/${slug}/` : `${site}/merch/`);
-  p.append('line_items[0][quantity]', String(quantity));
-  p.append('line_items[0][adjustable_quantity][enabled]', 'true');
-  p.append('line_items[0][adjustable_quantity][minimum]', '1');
-  p.append('line_items[0][adjustable_quantity][maximum]', '10');
-  p.append('line_items[0][price_data][currency]', 'usd');
-  p.append('line_items[0][price_data][unit_amount]', String(unitAmount));
-  p.append('line_items[0][price_data][product_data][name]', variant.name || 'Galen Marten Music merch');
-  if (preview && preview.preview_url) {
-    p.append('line_items[0][price_data][product_data][images][0]', preview.preview_url);
-  }
-  p.append('shipping_address_collection[allowed_countries][0]', 'US');
-  const ship = parseInt(process.env.SHIPPING_FLAT_CENTS || '499', 10);
-  p.append('shipping_options[0][shipping_rate_data][type]', 'fixed_amount');
-  p.append('shipping_options[0][shipping_rate_data][display_name]', 'Standard shipping');
-  p.append('shipping_options[0][shipping_rate_data][fixed_amount][amount]', String(ship));
-  p.append('shipping_options[0][shipping_rate_data][fixed_amount][currency]', 'usd');
-  p.append('phone_number_collection[enabled]', 'false');
-  p.append('metadata[printful_variant_id]', String(variantId));
-  p.append('metadata[product_slug]', slug);
+  const shipping = parseInt(process.env.SHIPPING_FLAT_CENTS || '499', 10);
 
-  const sres = await fetch('https://api.stripe.com/v1/checkout/sessions', {
+  const payload = {
+    idempotency_key: crypto.randomUUID(),
+    order: {
+      location_id: SQUARE_LOCATION_ID,
+      line_items: [
+        {
+          name: variant.name || 'Galen Marten Music merch',
+          quantity: String(quantity),
+          base_price_money: { amount: unitAmount, currency: 'USD' },
+        },
+      ],
+      service_charges: [
+        {
+          name: 'Standard shipping',
+          amount_money: { amount: shipping, currency: 'USD' },
+          calculation_phase: 'TOTAL_PHASE',
+        },
+      ],
+      // read back by the webhook to build the Printful order
+      metadata: {
+        printful_variant_id: String(variantId),
+        product_slug: slug,
+        quantity: String(quantity),
+      },
+    },
+    checkout_options: {
+      ask_for_shipping_address: true,
+      redirect_url: `${site}/merch/thanks/`,
+      accepted_payment_methods: {
+        apple_pay: true,
+        google_pay: true,
+        cash_app_pay: true,
+        afterpay_clearpay: false,
+      },
+    },
+  };
+
+  const sres = await fetch(`${squareBase()}/v2/online-checkout/payment-links`, {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${STRIPE_SECRET_KEY}`,
-      'Content-Type': 'application/x-www-form-urlencoded',
+      Authorization: `Bearer ${SQUARE_ACCESS_TOKEN}`,
+      'Square-Version': '2025-01-23',
+      'Content-Type': 'application/json',
     },
-    body: p,
+    body: JSON.stringify(payload),
   });
-  const session = await sres.json();
+  const data = await sres.json();
   if (!sres.ok) {
-    console.error('Stripe error:', session.error && session.error.message);
+    console.error('Square error:', JSON.stringify(data.errors || data).slice(0, 400));
     return json({ error: 'Could not start checkout' }, 502);
   }
-  return json({ url: session.url });
+  return json({ url: data.payment_link.url });
 };
