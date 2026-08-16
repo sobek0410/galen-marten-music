@@ -33,38 +33,50 @@ No build step, no framework. Deployed via GitHub → Netlify auto-deploy; `netli
    stale entries are harmless; prune them occasionally.
 4. Commit. Do **not** push/deploy unless the user says to (see global instructions).
 
-## Merch / print-on-demand (direct checkout built, needs keys to activate)
+## Merch / print-on-demand (LIVE in sandbox — needs production Square token)
 
-- Fulfillment: **Printful**, payments: **Stripe**. Direct checkout is implemented:
+- Fulfillment: **Printful**, payments: **Square**. Direct checkout is implemented
+  and verified end-to-end in Square sandbox (Aug 2026):
   - `netlify/functions/create-checkout.mjs` — POST {variantId, quantity, slug} →
-    looks the variant up in Printful (price source of truth) → Stripe Checkout
-    Session → returns redirect URL. Flat US shipping via `SHIPPING_FLAT_CENTS`
-    (default 499 = $4.99).
-  - `netlify/functions/stripe-webhook.mjs` — verifies Stripe signature, then
-    creates the Printful order (external_id = session id, idempotent). Orders are
-    **drafts** unless `AUTO_CONFIRM_ORDERS=true`.
+    looks the variant up in Printful (price source of truth) → Square hosted
+    Payment Link → returns redirect URL. Printful variant/slug/qty ride along in
+    Square **order metadata**. Flat US shipping as a service charge via
+    `SHIPPING_FLAT_CENTS` (default 499 = $4.99).
+  - `netlify/functions/square-webhook.mjs` — verifies Square's HMAC signature
+    (base64 HMAC-SHA256 of notificationUrl + rawBody), fetches the paid order for
+    metadata + the buyer's shipping address, creates the Printful order
+    (external_id = Square order id, idempotent). Orders are **drafts** unless
+    `AUTO_CONFIRM_ORDERS=true`.
+    (Stripe versions of both live in git history before commit ba33f67 if the
+    processor ever changes back.)
   - `site/assets/js/merch.js` — product pages fetch `/data/variants.json`; if the
     product has variants, the legacy buy link is replaced by size/color selects +
     a Buy now button. **If variants.json is missing, pages fall back to the old
     Wix product-page link** — nothing breaks without keys.
   - `tools/sync-printful-variants.mjs` — generates `site/data/variants.json` from
     the Printful store (run with PRINTFUL_API_KEY env; re-run when products change).
-- **Activation checklist** (once the client provides keys):
-  1. `netlify env:set PRINTFUL_API_KEY xxx` (+ `PRINTFUL_STORE_ID` if multi-store token)
-  2. `netlify env:set STRIPE_SECRET_KEY sk_live_...`
-  3. Create the Stripe webhook: POST /v1/webhook_endpoints for
-     `<site>/.netlify/functions/stripe-webhook`, event `checkout.session.completed`,
-     then `netlify env:set STRIPE_WEBHOOK_SECRET whsec_...`
-  4. Run the variant sync script, commit variants.json, push.
-  5. Test with Stripe test keys first; Printful orders stay drafts until
-     `AUTO_CONFIRM_ORDERS=true` is set.
+- **Env vars set in Netlify:** `PRINTFUL_API_KEY`, `PRINTFUL_STORE_ID`,
+  `SQUARE_ACCESS_TOKEN`, `SQUARE_LOCATION_ID`, `SQUARE_WEBHOOK_SIGNATURE_KEY`,
+  `SQUARE_WEBHOOK_URL`, `SQUARE_ENV` (currently `sandbox`).
+- **Going to production** (needs Galen's production Square access token):
+  1. `netlify env:set SQUARE_ACCESS_TOKEN <prod token> --secret --context production --context deploy-preview --context branch-deploy`
+  2. `netlify env:set SQUARE_ENV production`
+  3. Get the production location id: `GET https://connect.squareup.com/v2/locations`
+     → `netlify env:set SQUARE_LOCATION_ID <id>`
+  4. Create a **production** webhook subscription (`POST /v2/webhooks/subscriptions`,
+     event `payment.updated`, notification_url = the production
+     `/.netlify/functions/square-webhook`) → set the returned `signature_key` as
+     `SQUARE_WEBHOOK_SIGNATURE_KEY`, and update `SQUARE_WEBHOOK_URL` to match.
+  5. Place one small real order, confirm the Printful draft, then refund it.
+  6. Only then `netlify env:set AUTO_CONFIRM_ORDERS true` so orders auto-fulfill.
+- Sandbox webhook subscription id: `wbhk_0b336a6bd6df4b99bb8a7e662e78adc3`.
+- Re-run `PRINTFUL_API_KEY=… node tools/sync-printful-variants.mjs` and commit
+  `site/data/variants.json` whenever products change in Printful.
 - **Store migration DONE (Aug 2026):** all 9 products were cloned from the
   Wix-connected Printful store into "Galen's API Store" (PRINTFUL_STORE_ID
   18593964) with full variants, prices, print files, and embroidery options.
   The new site is fully independent of Wix on the Printful side.
   PRINTFUL_API_KEY (store-scoped) + PRINTFUL_STORE_ID are set in Netlify env.
-  Remaining to activate checkout: payment processor keys (Stripe or Square,
-  client deciding), webhook registration, then sync + commit variants.json.
   (A manually-created duplicate Live Free tee was deleted Aug 2026; the store
   holds exactly the 9 migrated products.)
 

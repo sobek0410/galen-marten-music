@@ -4,7 +4,7 @@ Working notes for picking this project back up in a fresh session. For *how the
 code works*, read `CLAUDE.md` — this file covers **state, decisions, and what's
 left to do**.
 
-Last updated: 2026-08-12
+Last updated: 2026-08-16
 
 ---
 
@@ -26,25 +26,21 @@ outstanding, all waiting on the client: **payment processor choice + Square keys
 Keep this list current — check items off and add new ones as they come up.
 
 ### Blocked on Galen
-- [ ] **Payment processor decision — Stripe or Square.** Leaning Square if he
-      already uses it for at-show sales (one dashboard, one deposit stream).
-      Checkout code is written for Stripe; swapping to Square is ~1 function
-      rewrite (`netlify/functions/create-checkout.mjs` + webhook). Need:
-      Square **access token** + **location ID** (sandbox first), or Stripe
-      **secret key** (test first).
+- [x] ~~Payment processor decision~~ → **Square**. Sandbox checkout is built and
+      **verified end-to-end** (payment → webhook → Printful draft order).
+- [ ] **Production Square access token** (developer.squareup.com → the app →
+      Credentials, toggle to **Production**). Then follow the "Going to
+      production" steps in `CLAUDE.md` — takes ~10 minutes.
 - [ ] **GoDaddy DNS credentials** → add 3 Resend records so email can send from
       `news@galenmartenmusic.com` (records listed below). Until then Resend can
       only send test emails to `gsmarten@gmail.com`.
 
 ### Blocked on the above
-- [ ] **Finish merch checkout** once the processor is picked:
-      1. Set the key(s) as Netlify env vars.
-      2. Register the payment webhook → set its signing secret as an env var.
-      3. Run `PRINTFUL_API_KEY=… node tools/sync-printful-variants.mjs`,
-         commit `site/data/variants.json`, push. (This is what flips product
-         pages from the Wix links to the real size/color picker.)
-      4. Run a test purchase end-to-end → confirm a **draft** order appears in
-         Printful. Only then set `AUTO_CONFIRM_ORDERS=true`.
+- [x] ~~Finish merch checkout~~ — done in sandbox: Square Payment Links,
+      signed webhook, Printful draft orders, size/color pickers live on all 9
+      product pages.
+- [ ] **Flip Square to production** (see `CLAUDE.md` → "Going to production"),
+      place one small real order, refund it, then set `AUTO_CONFIRM_ORDERS=true`.
 - [ ] **Verify the Resend domain** after DNS is added, then change `from` in
       `~/.claude/skills/galen-newsletter/config.json` to
       `Galen Marten Music <news@galenmartenmusic.com>`.
@@ -52,10 +48,8 @@ Keep this list current — check items off and add new ones as they come up.
 ### Launch day (domain cutover)
 - [ ] Point `galenmartenmusic.com` DNS at Netlify; add the custom domain in the
       Netlify site settings (it provisions SSL automatically).
-- [ ] **Merch buy links break at cutover.** They currently point at
-      `https://www.galenmartenmusic.com/product-page/<slug>` (Wix). Either
-      finish direct checkout first (preferred) or move the Wix store to a
-      subdomain. Grep `buy-link` in `site/merch/*/index.html`.
+- [x] ~~Merch buy links break at cutover~~ — resolved. Product pages now use
+      the built-in Square checkout, not Wix links.
 - [ ] Update the email template URLs from the staging domain to
       `www.galenmartenmusic.com` (`~/.claude/skills/galen-newsletter/assets/template.html`,
       ~5 occurrences: fonts, wordmark, torn strip).
@@ -106,8 +100,11 @@ embroidery options intact. **Printful no longer depends on Wix.** A duplicate
 "Live Free" tee was deleted. `PRINTFUL_API_KEY` + `PRINTFUL_STORE_ID` are set in
 Netlify env.
 
-Checkout code is written and deployed but **dormant** — product pages fall back
-to the old Wix links until `variants.json` exists and payment keys are set.
+**Checkout is live on staging in Square sandbox mode.** Product pages show real
+size/color pickers driven by `site/data/variants.json`, "Buy now" opens a Square
+hosted checkout, and a completed payment creates a **draft** Printful order via
+the signed webhook. Verified end-to-end 2026-08-16 (test order deleted after).
+Only the production Square token is missing.
 
 ### Email / Resend
 - Audience **"General"** — `f3b4c006-7e8f-4d04-9325-f428029d72be`
