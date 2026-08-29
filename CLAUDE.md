@@ -138,6 +138,13 @@ No build step, no framework. Deployed via GitHub → Netlify auto-deploy; `netli
 
 ## Gotchas
 
+- **Never put apostrophes (or any quote) in a form's `data-*` attributes.**
+  Netlify's form post-processor rewrites `<form>` tags at deploy time, switching
+  to single quotes and backslash-escaping apostrophes — which HTML doesn't
+  understand. `data-success="You're in"` shipped as the value `You\`, so the
+  success banner rendered as `You\`. Form success copy now lives in the
+  `SUCCESS` map in `site/assets/js/main.js`, keyed by form `name`. Keep it there.
+
 - `img { height: auto }` is set globally because width/height attributes otherwise
   override CSS `aspect-ratio`.
 - New pages: copy an existing page's full HTML (e.g. `site/news/index.html`) to keep the

@@ -424,7 +424,15 @@
     }, { once: true });
   });
 
-  /* ---------- Forms (Netlify) ---------- */
+  /* ---------- Forms (Netlify) ----------
+     Success copy lives HERE, not in a data- attribute: Netlify's form
+     post-processor re-serializes form tags with single quotes and
+     backslash-escapes apostrophes, which HTML doesn't understand — an
+     attribute like data-success="You're in" ships as the value "You\". */
+  var SUCCESS = {
+    newsletter: 'You\u2019re on the list \u2014 thanks for joining!',
+    booking: 'Thanks \u2014 your message is on its way. Galen will get back to you soon.'
+  };
   d.querySelectorAll('form[data-ajax]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -441,7 +449,9 @@
         var ok = d.createElement('div');
         ok.className = 'form-success';
         ok.setAttribute('role', 'status');
-        ok.textContent = form.getAttribute('data-success') || 'Thanks — message sent. Galen will get back to you soon.';
+        ok.textContent =
+          SUCCESS[form.getAttribute('name')] ||
+          'Thanks — message sent. Galen will get back to you soon.';
         form.replaceWith(ok);
       }).catch(function () {
         if (btn) { btn.disabled = false; btn.textContent = orig; }
