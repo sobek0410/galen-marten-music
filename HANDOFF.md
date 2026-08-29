@@ -4,20 +4,21 @@ Working notes for picking this project back up in a fresh session. For *how the
 code works*, read `CLAUDE.md` — this file covers **state, decisions, and what's
 left to do**.
 
-Last updated: 2026-08-16
+Last updated: 2026-08-29
 
 ---
 
 ## TL;DR
 
-The new site is **built, optimized, and live on a staging URL** with auto-deploy.
-The Wix site is still the public site at the real domain. Three things are
-outstanding, all waiting on the client: **payment processor choice + Square keys**,
-**GoDaddy DNS access**, and the **domain cutover**.
+🚀 **LAUNCHED 2026-08-29.** The new site is live at the real domain with SSL,
+production Square checkout, and auto-deploy from `main`. Wix is no longer
+serving the site.
 
-- **Staging:** https://galen-marten-music-staging.netlify.app
+- **Live:** https://www.galenmartenmusic.com
+- **Staging (same site, still works):** https://galen-marten-music-staging.netlify.app
 - **Repo:** https://github.com/sobek0410/galen-marten-music (public, `main`)
-- **Old site (still live):** https://www.galenmartenmusic.com (Wix)
+- **DNS:** registrar + nameservers at **GoDaddy** (`ns53/ns54.domaincontrol.com`);
+  apex A → `75.2.60.5`, www CNAME → the netlify.app subdomain.
 
 ---
 
@@ -31,9 +32,10 @@ Keep this list current — check items off and add new ones as they come up.
 - [x] ~~Production Square access token~~ — installed. Checkout is **live in
       production mode** with `AUTO_CONFIRM_ORDERS=true` (orders auto-fulfill;
       Galen has a card on file and gets email per order).
-- [ ] **GoDaddy DNS credentials** → add 3 Resend records so email can send from
-      `news@galenmartenmusic.com` (records listed below). Until then Resend can
-      only send test emails to `gsmarten@gmail.com`.
+- [x] ~~GoDaddy DNS~~ — all 3 Resend records added and resolving. Resend
+      verification was *pending* at launch; once it flips to verified, change
+      `from` in `~/.claude/skills/galen-newsletter/config.json` to
+      `Galen Marten Music <news@galenmartenmusic.com>`.
 
 ### Blocked on the above
 - [x] ~~Finish merch checkout~~ — done in sandbox: Square Payment Links,
@@ -47,18 +49,20 @@ Keep this list current — check items off and add new ones as they come up.
       `~/.claude/skills/galen-newsletter/config.json` to
       `Galen Marten Music <news@galenmartenmusic.com>`.
 
-### Launch day (domain cutover)
-- [ ] Point `galenmartenmusic.com` DNS at Netlify; add the custom domain in the
-      Netlify site settings (it provisions SSL automatically).
+### Launch day (domain cutover) — ✅ DONE 2026-08-29
+- [x] ~~Point DNS at Netlify~~ — nameservers moved Wix → GoDaddy, apex A +
+      www CNAME added, custom domain attached in Netlify, SSL provisioned.
+      Verified: all pages 200, apex→www redirect, security headers, and the
+      checkout function returning production Square links on the live domain.
 - [x] ~~Merch buy links break at cutover~~ — resolved. Product pages now use
       the built-in Square checkout, not Wix links.
-- [ ] Update the email template URLs from the staging domain to
-      `www.galenmartenmusic.com` (`~/.claude/skills/galen-newsletter/assets/template.html`,
-      ~5 occurrences: fonts, wordmark, torn strip).
+- [x] ~~Update email template URLs~~ — template now points at
+      www.galenmartenmusic.com.
 - [ ] Confirm Netlify Forms notifications go somewhere Galen actually reads
       (Netlify → Forms → notifications; add an email alert for `booking`).
-- [ ] Only cancel Wix **after** cutover is confirmed working. Printful no longer
-      depends on Wix (see below), but the live site does until DNS moves.
+- [ ] **Cancel the Wix subscription.** Safe now — the site, DNS, and Printful
+      are all off Wix. Keep it a few days as a rollback cushion if you like
+      (reverting nameservers to ns14/ns15.wixdns.net restores the old site).
 
 ### Nice-to-have / later
 - [ ] **Live Instagram feed.** The About page grid is a **static snapshot** of 6
