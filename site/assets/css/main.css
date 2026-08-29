@@ -380,23 +380,6 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   border-bottom: 1px solid rgba(253, 252, 233, 0.1);
 }
 .nav-mobile ul a:hover { color: var(--ember); }
-.nav-mobile .sub a {
-  font-family: var(--mono);
-  font-size: 0.8125rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--paper-dim);
-  padding: 0.7rem 0 0.7rem 1.8rem;
-  border-bottom-color: rgba(253, 252, 233, 0.06);
-  position: relative;
-}
-.nav-mobile .sub a::before {
-  content: '\21B3'; /* ↳ subpage arrow */
-  position: absolute;
-  left: 0.5rem;
-  color: var(--ember);
-}
-.nav-mobile .sub a:hover { color: var(--paper); }
 .nav-mobile .mobile-cta { margin-top: 2rem; display: grid; gap: 0.8rem; }
 
 @media (min-width: 920px) {
