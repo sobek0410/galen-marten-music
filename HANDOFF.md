@@ -32,10 +32,9 @@ Keep this list current — check items off and add new ones as they come up.
 - [x] ~~Production Square access token~~ — installed. Checkout is **live in
       production mode** with `AUTO_CONFIRM_ORDERS=true` (orders auto-fulfill;
       Galen has a card on file and gets email per order).
-- [x] ~~GoDaddy DNS~~ — all 3 Resend records added and resolving. Resend
-      verification was *pending* at launch; once it flips to verified, change
-      `from` in `~/.claude/skills/galen-newsletter/config.json` to
-      `Galen Marten Music <news@galenmartenmusic.com>`.
+- [x] ~~GoDaddy DNS + Resend verification~~ — all 3 records verified. Sender is
+      now `Galen Marten Music <news@galenmartenmusic.com>`; a real test email
+      was delivered from the verified domain 2026-08-29.
 
 ### Blocked on the above
 - [x] ~~Finish merch checkout~~ — done in sandbox: Square Payment Links,
@@ -45,9 +44,8 @@ Keep this list current — check items off and add new ones as they come up.
       ideal — Galen orders something he wants). Proves real card → Square
       deposit → Printful fulfillment. Safe to defer: checkout is only reachable
       on the staging URL, so no customer can reach it until the domain moves.
-- [ ] **Verify the Resend domain** after DNS is added, then change `from` in
-      `~/.claude/skills/galen-newsletter/config.json` to
-      `Galen Marten Music <news@galenmartenmusic.com>`.
+- [x] ~~Verify the Resend domain~~ — verified; sender updated and test send
+      confirmed.
 
 ### Launch day (domain cutover) — ✅ DONE 2026-08-29
 - [x] ~~Point DNS at Netlify~~ — nameservers moved Wix → GoDaddy, apex A +
@@ -121,7 +119,9 @@ still outstanding** — see the to-do list.
   for uploading to Claude.ai → Settings → Skills).
 - Workflow: describe the message → Claude drafts in Galen's voice → **screenshot
   preview** → optional test send → **explicit approval** → broadcast.
-- Domain registered in Resend but **NOT verified** (DNS pending).
+- Domain **verified** — sends from `news@galenmartenmusic.com` to any
+  recipient. Audience is currently empty (0 contacts); it fills as people use
+  the footer signup.
 
 ---
 
