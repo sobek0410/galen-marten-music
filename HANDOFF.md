@@ -56,11 +56,18 @@ Keep this list current — check items off and add new ones as they come up.
       the built-in Square checkout, not Wix links.
 - [x] ~~Update email template URLs~~ — template now points at
       www.galenmartenmusic.com.
-- [ ] Confirm Netlify Forms notifications go somewhere Galen actually reads
-      (Netlify → Forms → notifications; add an email alert for `booking`).
+- [x] ~~Netlify Forms notifications~~ — Galen's email is wired up in
+      Netlify → Forms → notifications.
 - [ ] **Cancel the Wix subscription.** Safe now — the site, DNS, and Printful
       are all off Wix. Keep it a few days as a rollback cushion if you like
       (reverting nameservers to ns14/ns15.wixdns.net restores the old site).
+
+### Known quirk (fixed, don't reintroduce)
+- Netlify's form post-processor rewrites `<form>` tags at deploy time using
+  single quotes and backslash-escapes apostrophes — so `data-success="You're
+  in"` shipped as the literal value `You\`. Form success copy now lives in the
+  `SUCCESS` map in `site/assets/js/main.js`, keyed by form name. **Never put
+  apostrophes in form `data-*` attributes.**
 
 ### Nice-to-have / later
 - [ ] **Live Instagram feed.** The About page grid is a **static snapshot** of 6
