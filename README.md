@@ -7,5 +7,6 @@ Static HTML/CSS/JS, no build step. Deploys from GitHub to Netlify (`netlify.toml
 - **Forms:** contact + newsletter run on Netlify Forms (submissions in the Netlify dashboard).
 - **Merch:** printed and shipped by Printful; see `CLAUDE.md` for how the buy links are wired during the Wix transition.
 
-Maintained with Claude Code — see `CLAUDE.md` for the full playbook and
-`HANDOFF.md` for current project status and open items.
+Maintained with Claude Code — see `SETUP.md` to get running on a new computer,
+`CLAUDE.md` for the full playbook, and `HANDOFF.md` for current status and open
+items.

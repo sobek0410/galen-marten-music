@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
+  <title>{{SUBJECT}}</title>
+  <style>
+    /* Progressive fonts: clients that support webfonts get the brand faces,
+       everyone else gets Georgia / Courier fallbacks that keep the vibe */
+    @font-face {
+      font-family: 'Gloock';
+      src: url('https://www.galenmartenmusic.com/assets/fonts/Gloock-400.woff2') format('woff2');
+      font-weight: 400; font-style: normal;
+    }
+    @font-face {
+      font-family: 'Azeret Mono';
+      src: url('https://www.galenmartenmusic.com/assets/fonts/AzeretMono-var.woff2') format('woff2');
+      font-weight: 100 900; font-style: normal;
+    }
+    @media only screen and (max-width: 620px) {
+      .container { width: 100% !important; }
+      .px { padding-left: 24px !important; padding-right: 24px !important; }
+      h1 { font-size: 28px !important; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background-color:#F0EFDA;">
+  <!-- preheader: shows next to the subject in inboxes, hidden in the body -->
+  <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">{{PREHEADER}}&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F0EFDA;">
+    <tr><td align="center" style="padding:24px 12px;">
+
+      <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:600px;">
+
+        <!-- Header -->
+        <tr><td style="background-color:#242424;border-radius:10px 10px 0 0;padding:28px 0 24px;" align="center">
+          <a href="https://www.galenmartenmusic.com/" style="text-decoration:none;">
+            <img src="https://www.galenmartenmusic.com/assets/img/logos/wordmark.png" width="150" alt="Galen Marten Music" style="display:block;border:0;width:150px;height:auto;">
+          </a>
+        </td></tr>
+
+        <!-- Torn edge -->
+        <tr><td style="background-color:#FDFCE9;line-height:0;font-size:0;">
+          <img src="https://www.galenmartenmusic.com/assets/img/email/torn-email.png" width="600" alt="" style="display:block;border:0;width:100%;height:auto;">
+        </td></tr>
+
+        <!-- Body -->
+        <tr><td class="px" style="background-color:#FDFCE9;padding:28px 48px 8px;">
+          <h1 style="margin:0 0 18px;font-family:'Gloock',Georgia,'Times New Roman',serif;font-weight:400;font-size:34px;line-height:1.15;color:#242424;">{{HEADLINE}}</h1>
+          {{BODY}}
+        </td></tr>
+
+        <!-- Optional feature image -->
+        {{IMAGE_BLOCK}}
+
+        <!-- Optional CTA button -->
+        {{CTA_BLOCK}}
+
+        <!-- Sign-off -->
+        <tr><td class="px" style="background-color:#FDFCE9;padding:8px 48px 36px;">
+          <p style="margin:0;font-family:'Azeret Mono','Courier New',Courier,monospace;font-size:14px;line-height:1.75;color:#242424;">{{SIGNOFF}}</p>
+        </td></tr>
+
+        <!-- Footer -->
+        <tr><td class="px" style="background-color:#242424;border-radius:0 0 10px 10px;padding:28px 48px;" align="center">
+          <p style="margin:0 0 10px;font-family:'Azeret Mono','Courier New',Courier,monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#ED7250;">
+            <a href="https://www.galenmartenmusic.com/shows/" style="color:#ED7250;text-decoration:none;">Shows</a>
+            &nbsp;&middot;&nbsp;
+            <a href="https://www.galenmartenmusic.com/media/" style="color:#ED7250;text-decoration:none;">Music</a>
+            &nbsp;&middot;&nbsp;
+            <a href="https://www.galenmartenmusic.com/merch/" style="color:#ED7250;text-decoration:none;">Merch</a>
+          </p>
+          <p style="margin:0 0 14px;font-family:'Azeret Mono','Courier New',Courier,monospace;font-size:11px;line-height:1.7;color:#CFCFBE;">
+            <a href="https://www.instagram.com/galenmartenmusic" style="color:#CFCFBE;text-decoration:underline;">Instagram</a>
+            &nbsp;&middot;&nbsp;
+            <a href="https://open.spotify.com/artist/01Fqkvip23T7QRVQ1CUozL" style="color:#CFCFBE;text-decoration:underline;">Spotify</a>
+            &nbsp;&middot;&nbsp;
+            <a href="https://www.youtube.com/@galenmartenband6083" style="color:#CFCFBE;text-decoration:underline;">YouTube</a>
+          </p>
+          <p style="margin:0;font-family:'Azeret Mono','Courier New',Courier,monospace;font-size:10px;line-height:1.7;color:#8a8a80;">
+            You're getting this because you joined the list at galenmartenmusic.com.<br>
+            <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#8a8a80;text-decoration:underline;">Unsubscribe</a>
+          </p>
+        </td></tr>
+
+      </table>
+
+    </td></tr>
+  </table>
+</body>
+</html>

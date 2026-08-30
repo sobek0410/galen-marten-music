@@ -2,7 +2,7 @@
 
 > **Picking this up fresh?** Read [HANDOFF.md](HANDOFF.md) first — it has current
 > project state, what's still outstanding, and account/ID reference. This file
-> covers how the code works.
+> covers how the code works. Setting up a new computer? See [SETUP.md](SETUP.md).
 
 Static site for galenmartenmusic.com (musician Galen Marten: one-man band, Ohio).
 No build step, no framework. Deployed via GitHub → Netlify auto-deploy; `netlify.toml` publishes the `site/` folder.
@@ -31,7 +31,7 @@ No build step, no framework. Deployed via GitHub → Netlify auto-deploy; `netli
      optional `rsvpUrl` (external tickets/RSVP link — button appears only if present).
 3. That's it. Past-dated shows disappear automatically (client-side date filter), so
    stale entries are harmless; prune them occasionally.
-4. Commit. Do **not** push/deploy unless the user says to (see global instructions).
+4. Commit. Push only when the user asks — pushing to `main` deploys the live site.
 
 ## Merch / print-on-demand (LIVE — production Square, auto-fulfilling)
 
@@ -72,9 +72,9 @@ No build step, no framework. Deployed via GitHub → Netlify auto-deploy; `netli
   netlify.app function URL, which keeps working after the domain cutover — but
   if it's ever changed, update BOTH the Square subscription and the
   `SQUARE_WEBHOOK_URL` env var (signature verification hashes that exact URL).
-- **NOT yet done: one real production test order.** Checkout is only reachable
-  on the staging URL, so no customer can hit it before cutover. Place one small
-  real order before launch to prove the chain with real money.
+- **Still outstanding: one real production test order.** The site is live, so
+  a customer *could* buy right now. The chain is verified in sandbox but never
+  with a real card — place one small real order to prove it end to end.
 - Re-run `PRINTFUL_API_KEY=… node tools/sync-printful-variants.mjs` and commit
   `site/data/variants.json` whenever products change in Printful.
 - **Store migration DONE (Aug 2026):** all 9 products were cloned from the
@@ -93,22 +93,23 @@ No build step, no framework. Deployed via GitHub → Netlify auto-deploy; `netli
 - `netlify/functions/submission-created.mjs` auto-adds newsletter form
   signups to the audience (booking submissions are excluded — no consent).
   Verified end-to-end Aug 2026.
-- Composing/sending happens through the **galen-newsletter skill**
-  (~/.claude/skills/galen-newsletter): branded template, preview-first,
-  explicit approval before broadcast. Config lives in the skill dir
-  (never commit keys to this repo).
-- Domain galenmartenmusic.com is registered in Resend but NOT yet verified —
-  DNS records (DKIM TXT resend._domainkey, MX+TXT on send) need to be added
-  in GoDaddy; until then sends come from onboarding@resend.dev. After
-  verification, switch the skill config 'from' to news@galenmartenmusic.com.
+- Composing/sending happens through the **galen-newsletter skill**, which
+  ships with this repo at `.claude/skills/galen-newsletter/` — Claude Code
+  picks it up automatically when working in this project. Branded template,
+  preview-first, explicit approval before broadcast.
+- The skill needs `.claude/skills/galen-newsletter/config.json` (gitignored —
+  each machine makes its own). Copy `config.example.json` and fill in the
+  Resend API key. See `SETUP.md`.
+- Domain galenmartenmusic.com is **verified** in Resend; sends go out as
+  `Galen Marten Music <news@galenmartenmusic.com>`.
 
 ## Forms
 
 - Contact form (`booking`) and newsletter (`newsletter`) are **Netlify Forms**
   (attribute-based, submissions appear in the Netlify dashboard). JS in `main.js`
   submits them via fetch and swaps in a success message.
-- Planned: move storage to **Supabase** later (client wants contact + email list there).
-  When that happens, replace the `data-ajax` handler target in `main.js`.
+- Netlify emails Galen on each submission. Newsletter signups also auto-sync
+  into the Resend audience via `netlify/functions/submission-created.mjs`.
 
 ## Design system (keep it consistent)
 

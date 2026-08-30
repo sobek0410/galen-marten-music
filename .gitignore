@@ -4,3 +4,6 @@ node_modules/
 
 # Local Netlify folder
 .netlify
+
+# Newsletter skill secrets (each machine creates its own)
+.claude/skills/galen-newsletter/config.json
