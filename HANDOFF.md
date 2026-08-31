@@ -62,6 +62,27 @@ Keep this list current — check items off and add new ones as they come up.
       are all off Wix. Keep it a few days as a rollback cushion if you like
       (reverting nameservers to ns14/ns15.wixdns.net restores the old site).
 
+### Previewing the mailing-list popup
+
+Add `?popup=1` to any page URL — e.g. `galenmartenmusic.com/?popup=1` — and the
+popup opens right away, skipping the delay and every suppression rule. That's
+the only reliable way to see it on demand.
+
+Normally it's deliberately hard to trigger, which is the point:
+- Waits 8 seconds before it will show at all.
+- Fires on exit-intent (cursor leaving the top of the window) or once you've
+  scrolled ~45% down the page.
+- Never shows on the contact page or the order-thanks page, never while the
+  footer signup form is already on screen, never again after someone subscribes,
+  and not for 30 days after someone dismisses it.
+
+Because of the last rule, **if you dismiss it once you won't see it again for a
+month** in that browser. Use `?popup=1` instead of clearing site data.
+
+Note that exit-intent can't fire inside an embedded preview pane or with
+devtools docked along the top — the pointer never crosses the top edge of the
+page itself. Scroll depth works everywhere.
+
 ### If Netlify says "running on operational credits"
 Netlify's free plan has a monthly credit allotment; heavy months can exhaust it.
 **The live site keeps serving — only new deploys pause.** Nothing customer-facing

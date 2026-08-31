@@ -548,12 +548,18 @@
     function stored(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
     function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
 
+    // ?popup=1 forces it open immediately, skipping the dwell timer and every
+    // suppression rule. That's how to preview it on demand — see HANDOFF.md.
+    var force = /[?&]popup=1\b/.test(location.search);
+
     // pages where asking would be redundant or rude
     var path = location.pathname;
-    if (/\/contact\/|\/merch\/thanks\//.test(path)) return;
-    if (stored(KEY_DONE)) return;
-    var snoozed = parseInt(stored(KEY_SNOOZE) || '0', 10);
-    if (snoozed && Date.now() < snoozed) return;
+    if (!force) {
+      if (/\/contact\/|\/merch\/thanks\//.test(path)) return;
+      if (stored(KEY_DONE)) return;
+      var snoozed = parseInt(stored(KEY_SNOOZE) || '0', 10);
+      if (snoozed && Date.now() < snoozed) return;
+    }
 
     var shown = false;
     var armed = false;
@@ -606,8 +612,11 @@
     }
 
     function show() {
-      if (shown || !armed || stored(KEY_DONE)) return;
-      if (footerFormVisible()) return;   // they can already see the signup
+      if (shown) return;
+      if (!force) {
+        if (!armed || stored(KEY_DONE)) return;
+        if (footerFormVisible()) return;   // they can already see the signup
+      }
       shown = true;
       if (!dlg) build();
       if (typeof dlg.showModal === 'function') dlg.showModal();
@@ -616,7 +625,7 @@
 
     function onLeave(e) {
       // only a real exit toward the browser chrome, not a drift out the side
-      if (e.clientY <= 0 && !e.relatedTarget) show();
+      if (e.clientY <= 5 && !e.relatedTarget) show();
     }
     function onScroll() {
       // 45% is past the fold and reads as real interest, while still firing
@@ -629,9 +638,15 @@
       window.removeEventListener('scroll', onScroll);
     }
 
-    var touch = window.matchMedia('(hover: none)').matches;
-    if (touch) window.addEventListener('scroll', onScroll, { passive: true });
-    else d.addEventListener('mouseout', onLeave);
+    // Both triggers run everywhere. Exit-intent is the polite one but it can
+    // only fire in a real top-level window with a cursor — it never fires on
+    // touch, and it can't fire inside a preview pane or with devtools docked
+    // on top, because the pointer never crosses y=0 of the viewport. Scroll
+    // depth is the trigger that always works; exit-intent just gets there
+    // sooner when it can.
+    window.addEventListener('scroll', onScroll, { passive: true });
+    d.addEventListener('mouseout', onLeave);
+    if (force) show();
   })();
 
   /* ---------- Footer year ---------- */
