@@ -62,6 +62,21 @@ Keep this list current — check items off and add new ones as they come up.
       are all off Wix. Keep it a few days as a rollback cushion if you like
       (reverting nameservers to ns14/ns15.wixdns.net restores the old site).
 
+### If Netlify says "running on operational credits"
+Netlify's free plan has a monthly credit allotment; heavy months can exhaust it.
+**The live site keeps serving — only new deploys pause.** Nothing customer-facing
+breaks (verified: pages, forms, and Square checkout all kept working).
+
+- You can keep committing and pushing to GitHub normally — it's unaffected.
+- Netlify publishes a *snapshot of `main`*, not one commit at a time, so
+  everything pushed while paused goes live together on the next successful
+  deploy. Nothing is lost or needs replaying.
+- When credits reset: any new push deploys everything, or trigger it with no
+  new commit via Netlify → Deploys → **Trigger deploy → Deploy site**.
+- While paused, verify changes on the local preview (`npx serve -p 8899 site`)
+  since you can't check them on the live site.
+- Don't upgrade reflexively — normal usage here is a few deploys a month.
+
 ### Known quirk (fixed, don't reintroduce)
 - Netlify's form post-processor rewrites `<form>` tags at deploy time using
   single quotes and backslash-escapes apostrophes — so `data-success="You're

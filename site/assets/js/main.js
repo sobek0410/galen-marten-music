@@ -433,7 +433,7 @@
     newsletter: 'You\u2019re on the list \u2014 thanks for joining!',
     booking: 'Thanks \u2014 your message is on its way. Galen will get back to you soon.'
   };
-  d.querySelectorAll('form[data-ajax]').forEach(function (form) {
+  function wireForm(form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var btn = form.querySelector('[type="submit"]');
@@ -465,7 +465,8 @@
         err.textContent = 'Something went wrong sending this. Please try again, or email gsmarten@gmail.com directly.';
       });
     });
-  });
+  }
+  d.querySelectorAll('form[data-ajax]').forEach(wireForm);
 
   /* ---------- Horizontal video slider ---------- */
   d.querySelectorAll('.video-slider').forEach(function (slider) {
@@ -530,6 +531,108 @@
     }, { threshold: 0.6 });
     statNums.forEach(function (n) { so.observe(n); });
   }
+
+  /* ---------- Mailing-list popup ----------
+     Trigger differs by device on purpose: exit-intent needs a cursor, so it
+     only exists on desktop. Touch devices get a scroll-depth trigger instead,
+     which fires on demonstrated interest rather than an arbitrary timer.
+     Suppressed once someone subscribes (forever) or dismisses it (30 days),
+     on the pages where it would be redundant, and while the footer signup
+     form is already on screen. */
+  (function () {
+    var KEY_DONE = 'gmm_list_joined';
+    var KEY_SNOOZE = 'gmm_pop_snooze';
+    var SNOOZE_DAYS = 30;
+    var MIN_DWELL_MS = 8000;
+
+    function stored(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+    function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+
+    // pages where asking would be redundant or rude
+    var path = location.pathname;
+    if (/\/contact\/|\/merch\/thanks\//.test(path)) return;
+    if (stored(KEY_DONE)) return;
+    var snoozed = parseInt(stored(KEY_SNOOZE) || '0', 10);
+    if (snoozed && Date.now() < snoozed) return;
+
+    var shown = false;
+    var armed = false;
+    var loadedAt = Date.now();
+    setTimeout(function () { armed = true; }, MIN_DWELL_MS);
+
+    var dlg;
+    function build() {
+      dlg = d.createElement('dialog');
+      dlg.className = 'pop';
+      dlg.setAttribute('aria-labelledby', 'pop-title');
+      dlg.innerHTML =
+        '<div class="pop-card">' +
+          '<button class="pop-close" type="button" aria-label="Close">&times;</button>' +
+          '<div class="pop-top"><img src="/assets/img/logos/pick-full.png" alt="" width="660" height="706"></div>' +
+          '<div class="torn bg-paper" aria-hidden="true"></div>' +
+          '<div class="pop-body">' +
+            '<h2 id="pop-title">Never miss a show</h2>' +
+            '<p class="pop-sub">New dates, new songs, and the occasional bit of good news &mdash; straight to your inbox.</p>' +
+            '<form class="pop-form" name="newsletter" method="POST" action="/" data-ajax>' +
+              '<input type="hidden" name="form-name" value="newsletter">' +
+              '<p class="visually-hidden" aria-hidden="true"><label>Skip this: <input name="bot-field" tabindex="-1"></label></p>' +
+              '<label class="visually-hidden" for="pop-email">Email address</label>' +
+              '<input id="pop-email" type="email" name="email" placeholder="you@email.com" autocomplete="email" required>' +
+              '<input type="hidden" name="consent" value="yes">' +
+              '<button class="btn btn-solid" type="submit">Join the list</button>' +
+            '</form>' +
+            '<p class="pop-fine">No spam. Unsubscribe anytime.</p>' +
+          '</div>' +
+        '</div>';
+      d.body.appendChild(dlg);
+
+      var form = dlg.querySelector('form');
+      wireForm(form);
+      form.addEventListener('submit', function () { store(KEY_DONE, '1'); });
+
+      dlg.querySelector('.pop-close').addEventListener('click', dismiss);
+      dlg.addEventListener('cancel', function () { snooze(); });   // Esc
+      dlg.addEventListener('click', function (e) { if (e.target === dlg) dismiss(); });
+    }
+
+    function snooze() { store(KEY_SNOOZE, String(Date.now() + SNOOZE_DAYS * 864e5)); }
+    function dismiss() { snooze(); if (dlg && dlg.open) dlg.close(); }
+
+    function footerFormVisible() {
+      var f = d.querySelector('.newsletter-form');
+      if (!f) return false;
+      var r = f.getBoundingClientRect();
+      return r.top < window.innerHeight && r.bottom > 0;
+    }
+
+    function show() {
+      if (shown || !armed || stored(KEY_DONE)) return;
+      if (footerFormVisible()) return;   // they can already see the signup
+      shown = true;
+      if (!dlg) build();
+      if (typeof dlg.showModal === 'function') dlg.showModal();
+      teardown();
+    }
+
+    function onLeave(e) {
+      // only a real exit toward the browser chrome, not a drift out the side
+      if (e.clientY <= 0 && !e.relatedTarget) show();
+    }
+    function onScroll() {
+      // 45% is past the fold and reads as real interest, while still firing
+      // before the footer signup scrolls into view (which suppresses it)
+      var h = d.documentElement.scrollHeight - window.innerHeight;
+      if (h > 0 && (window.scrollY / h) > 0.45) show();
+    }
+    function teardown() {
+      d.removeEventListener('mouseout', onLeave);
+      window.removeEventListener('scroll', onScroll);
+    }
+
+    var touch = window.matchMedia('(hover: none)').matches;
+    if (touch) window.addEventListener('scroll', onScroll, { passive: true });
+    else d.addEventListener('mouseout', onLeave);
+  })();
 
   /* ---------- Footer year ---------- */
   var yr = d.getElementById('year');
