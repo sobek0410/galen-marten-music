@@ -63,7 +63,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--mono);
-  font-size: 0.9375rem; /* 15px */
+  font-size: 1.17188rem; /* 15px */
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -90,7 +90,7 @@ a { color: inherit; }
   color: var(--ink);
   padding: 0.75rem 1.25rem;
   font-family: var(--mono);
-  font-size: 0.8125rem;
+  font-size: 1.01562rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   text-decoration: none;
@@ -108,7 +108,7 @@ h1, h2, h3, .display {
 p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 .eyebrow {
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.22em;
@@ -117,10 +117,10 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 .on-dark .eyebrow { color: var(--ember); }
 
 .section-title {
-  font-size: clamp(2.1rem, 4.5vw, 3.4rem);
+  font-size: clamp(2.625rem, 5.625vw, 4.25rem);
   margin-top: 0.5rem;
 }
-.lede { font-size: 1.0625rem; line-height: 1.8; }
+.lede { font-size: 1.32812rem; line-height: 1.8; }
 .max-measure { max-width: var(--measure); }
 
 /* ---------- Layout ---------- */
@@ -170,7 +170,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   justify-content: center;
   gap: 0.6em;
   font-family: var(--mono);
-  font-size: 0.8125rem;
+  font-size: 1.01562rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -242,7 +242,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 }
 .nav-desktop a.nav-link, .nav-desktop button.nav-link {
   font-family: var(--mono);
-  font-size: 0.8125rem;
+  font-size: 1.01562rem;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -314,7 +314,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 .submenu a {
   display: block;
   padding: 0.7rem 0.9rem;
-  font-size: 0.8125rem;
+  font-size: 1.01562rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
@@ -374,7 +374,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 .nav-mobile ul a {
   display: block;
   font-family: var(--display);
-  font-size: 2rem;
+  font-size: 2.5rem;
   padding: 0.55rem 0;
   text-decoration: none;
   border-bottom: 1px solid rgba(253, 252, 233, 0.1);
@@ -429,7 +429,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 }
 .hero-logo { width: clamp(220px, 34vw, 380px); height: auto; filter: drop-shadow(0 14px 34px rgba(0, 0, 0, 0.45)); }
 .hero-tag {
-  font-size: 0.8125rem;
+  font-size: 1.01562rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--paper-dim);
@@ -463,7 +463,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   text-align: center;
 }
 .ribbon .tag {
-  font-size: 0.6875rem;
+  font-size: 0.859375rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -472,7 +472,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   border-radius: 3px;
   padding: 0.2em 0.7em;
 }
-.ribbon p { font-size: 0.875rem; letter-spacing: 0.02em; }
+.ribbon p { font-size: 1.09375rem; letter-spacing: 0.02em; }
 .ribbon a { color: var(--paper); text-underline-offset: 0.3em; }
 .ribbon a:hover { color: var(--ember); }
 
@@ -509,9 +509,9 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   background: var(--paper);
   box-shadow: 3px 3px 0 0 color-mix(in srgb, var(--leather) 35%, transparent);
 }
-.gig-stub .dow { font-size: 0.625rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brick); font-weight: 700; }
-.gig-stub .day { font-family: var(--display); font-size: 1.9rem; line-height: 1.1; }
-.gig-stub .mon { font-size: 0.6875rem; letter-spacing: 0.18em; text-transform: uppercase; }
+.gig-stub .dow { font-size: 0.78125rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brick); font-weight: 700; }
+.gig-stub .day { font-family: var(--display); font-size: 2.375rem; line-height: 1.1; }
+.gig-stub .mon { font-size: 0.859375rem; letter-spacing: 0.18em; text-transform: uppercase; }
 .gig-art { grid-area: art; }
 .gig-art img {
   width: 100%;
@@ -524,15 +524,15 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 .gig-info { grid-area: info; }
 .gig-venue {
   font-family: var(--display);
-  font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+  font-size: clamp(2.125rem, 4.25vw, 3.25rem);
   line-height: 1.1;
   color: var(--ink);
 }
-.gig-meta { margin-top: 0.4rem; font-size: 0.8125rem; letter-spacing: 0.06em; color: var(--leather); text-transform: uppercase; }
+.gig-meta { margin-top: 0.4rem; font-size: 1.01562rem; letter-spacing: 0.06em; color: var(--leather); text-transform: uppercase; }
 .gig-meta .sep { margin-inline: 0.5em; color: var(--paper-dim); }
 .gig-note { margin-top: 0.5rem; font-style: italic; color: var(--ink-soft); }
 .gig-actions { grid-area: actions; display: flex; gap: 0.6rem; flex-wrap: wrap; }
-.gig-actions .btn { font-size: 0.71875rem; padding: 0.7em 1.2em; }
+.gig-actions .btn { font-size: 0.898438rem; padding: 0.7em 1.2em; }
 
 @media (min-width: 760px) {
   .gig {
@@ -549,7 +549,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 }
 
 .gig-month {
-  font-size: 0.75rem;
+  font-size: 0.9375rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--brick);
@@ -612,7 +612,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   flex-direction: column;
   flex: 1;
 }
-.gig-card .gig-venue { font-size: clamp(1.5rem, 2.4vw, 1.9rem); }
+.gig-card .gig-venue { font-size: clamp(1.875rem, 3vw, 2.375rem); }
 .gig-card .gig-note { margin-top: 0.4rem; }
 .gig-card .gig-actions { margin-top: auto; padding-top: 1.1rem; }
 
@@ -668,19 +668,19 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 }
 .yt-title {
   margin-top: 0.7rem;
-  font-size: 0.8125rem;
+  font-size: 1.01562rem;
   letter-spacing: 0.05em;
 }
 
 /* ---------- Feature (Live Free / Am I Happy) ---------- */
 .feature-kicker {
-  font-size: 1.0625rem;
+  font-size: 1.32812rem;
   font-weight: 500;
   letter-spacing: 0.02em;
 }
 .feature-kicker + .film-link { display: inline-block; margin-top: 0.5rem; }
 .film-link {
-  font-size: 0.875rem;
+  font-size: 1.09375rem;
   color: var(--paper-dim);
   text-underline-offset: 0.35em;
   text-decoration-thickness: 1px;
@@ -747,7 +747,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   .poster-play::before { animation: none; opacity: 0; }
 }
 .single-title {
-  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  font-size: clamp(3.25rem, 7.5vw, 5.25rem);
   line-height: 1;
 }
 .spotify-track iframe { border: 0; border-radius: 12px; width: 100%; height: 152px; display: block; }
@@ -757,8 +757,8 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 @media (min-width: 920px) { .oneman-grid { grid-template-columns: 5fr 6fr; } }
 .oneman-photo img { border-radius: 10px; width: 100%; object-fit: cover; aspect-ratio: 4 / 5; }
 .stats { display: flex; gap: clamp(1.5rem, 5vw, 3.5rem); margin-top: 2rem; }
-.stat .num { font-family: var(--display); font-size: clamp(2.4rem, 5vw, 3.6rem); color: var(--brick); }
-.stat .label { font-size: 0.71875rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--leather); }
+.stat .num { font-family: var(--display); font-size: clamp(3rem, 6.25vw, 4.5rem); color: var(--brick); }
+.stat .label { font-size: 0.898438rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--leather); }
 
 /* ---------- Photo strip ---------- */
 .photo-strip {
@@ -804,8 +804,8 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 .product-card .imgs img.alt { opacity: 0; transition: opacity 220ms; }
 .product-card:hover .imgs img.alt { opacity: 1; }
 .product-card .info { padding: 1rem 1.1rem 1.2rem; display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; }
-.product-card .name { font-size: 0.8125rem; letter-spacing: 0.04em; line-height: 1.5; }
-.product-card .price { font-weight: 700; font-size: 0.875rem; white-space: nowrap; }
+.product-card .name { font-size: 1.01562rem; letter-spacing: 0.04em; line-height: 1.5; }
+.product-card .price { font-weight: 700; font-size: 1.09375rem; white-space: nowrap; }
 
 /* Product page */
 .product-layout { display: grid; gap: clamp(2rem, 5vw, 4rem); }
@@ -830,8 +830,8 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 }
 .product-gallery .thumbs button[aria-current="true"] { border-color: var(--brick); box-shadow: 0 0 0 1px var(--brick); }
 .product-gallery .thumbs img { width: 100%; height: 100%; object-fit: cover; }
-.product-info h1 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
-.product-info .price { font-size: 1.25rem; font-weight: 700; margin-top: 0.8rem; }
+.product-info h1 { font-size: clamp(2.25rem, 4.375vw, 3.25rem); }
+.product-info .price { font-size: 1.5625rem; font-weight: 700; margin-top: 0.8rem; }
 .product-info .desc { margin-top: 1.4rem; }
 .product-info .desc ul { padding-left: 1.2em; }
 .product-info .buy { margin-top: 2rem; display: grid; gap: 0.8rem; }
@@ -850,7 +850,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   background: var(--paper);
   color: var(--ink);
   padding: 0.8em 1em;
-  font-size: 0.9375rem;
+  font-size: 1.17188rem;
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23735a38' stroke-width='2'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -863,7 +863,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 }
 .product-info .fine {
   margin-top: 1rem;
-  font-size: 0.75rem;
+  font-size: 0.9375rem;
   color: var(--leather);
 }
 .product-info .fine a { color: inherit; }
@@ -872,14 +872,14 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 .testimonial { text-align: center; }
 .testimonial blockquote {
   font-family: var(--display);
-  font-size: clamp(1.4rem, 3vw, 2.1rem);
+  font-size: clamp(1.75rem, 3.75vw, 2.625rem);
   line-height: 1.4;
   max-width: 30ch;
   margin-inline: auto;
 }
 .testimonial .who {
   margin-top: 1.4rem;
-  font-size: 0.75rem;
+  font-size: 0.9375rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--ember);
@@ -985,8 +985,8 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   padding-block: clamp(4rem, 10vw, 8rem);
   text-align: center;
 }
-.page-hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); }
-.page-hero .sub { margin-top: 1rem; color: var(--paper-dim); font-size: 0.9375rem; letter-spacing: 0.04em; }
+.page-hero h1 { font-size: clamp(3.25rem, 7.5vw, 5.75rem); }
+.page-hero .sub { margin-top: 1rem; color: var(--paper-dim); font-size: 1.17188rem; letter-spacing: 0.04em; }
 .page-hero--tall .inner { padding-block: clamp(6rem, 14vw, 11rem); }
 
 /* ---------- Song list ---------- */
@@ -1014,7 +1014,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 .setlist-nav::-webkit-scrollbar { display: none; }
 .setlist-nav a {
   flex: none;
-  font-size: 0.75rem;
+  font-size: 0.9375rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
@@ -1038,7 +1038,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   border-radius: 50%;
   background: var(--paper);
   color: var(--ink);
-  font-size: 0.9rem;
+  font-size: 1.125rem;
   line-height: 1;
   display: grid;
   place-items: center;
@@ -1059,7 +1059,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   border-radius: 6px;
   background: var(--paper);
   padding: 0.8em 1em;
-  font-size: 0.875rem;
+  font-size: 1.09375rem;
 }
 .setlist-search::placeholder { color: var(--leather); }
 @media (max-width: 680px) {
@@ -1069,7 +1069,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 
 .setlist-genre { padding-top: 1rem; margin-bottom: 3rem; scroll-margin-top: calc(var(--header-h) + 1rem); }
 .setlist-genre > h2 {
-  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-size: clamp(2.125rem, 3.75vw, 3rem);
   border-bottom: 2px solid var(--ink);
   padding-bottom: 0.6rem;
   margin-bottom: 1.5rem;
@@ -1080,7 +1080,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 .artist-block { break-inside: avoid; margin-bottom: 1.4rem; }
 .artist-block h3 {
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.9375rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -1088,7 +1088,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   margin-bottom: 0.3rem;
 }
 .artist-block ul { list-style: none; padding: 0; }
-.artist-block li { padding: 0.15rem 0; font-size: 0.875rem; }
+.artist-block li { padding: 0.15rem 0; font-size: 1.09375rem; }
 .setlist-genre.originals { background: var(--ink); color: var(--paper); border-radius: 12px; padding: 2rem; }
 .setlist-genre.originals > h2 { border-color: var(--ember); }
 .setlist-genre.originals .artist-block h3 { color: var(--ember); }
@@ -1158,13 +1158,13 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 }
 .article .art img { border-radius: 10px; width: 100%; }
 .article .kicker {
-  font-size: 0.71875rem;
+  font-size: 0.898438rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--brick);
 }
-.article h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); margin-top: 0.5rem; }
+.article h2 { font-size: clamp(2.375rem, 5vw, 3.5rem); margin-top: 0.5rem; }
 .article .body { margin-top: 1.2rem; }
 .article .body p + p { margin-top: 0.9rem; }
 .article .actions { margin-top: 1.6rem; }
@@ -1207,7 +1207,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   border: 1px solid var(--ink);
   background: var(--paper);
   color: var(--ink);
-  font-size: 1.1rem;
+  font-size: 1.375rem;
   cursor: pointer;
   display: grid;
   place-items: center;
@@ -1236,8 +1236,8 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   border-top: 1px solid var(--hairline);
 }
 @media (min-width: 800px) { .album-row { grid-template-columns: 1fr 2fr; align-items: center; } }
-.album-row .meta .year { color: var(--leather); font-size: 0.8125rem; letter-spacing: 0.1em; }
-.album-row .meta h3 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-top: 0.3rem; }
+.album-row .meta .year { color: var(--leather); font-size: 1.01562rem; letter-spacing: 0.1em; }
+.album-row .meta h3 { font-size: clamp(2rem, 3.75vw, 2.75rem); margin-top: 0.3rem; }
 .album-row .meta .links { margin-top: 1rem; display: flex; gap: 0.8rem; flex-wrap: wrap; }
 
 /* ---------- Forms ---------- */
@@ -1248,7 +1248,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 }
 .field label {
   display: block;
-  font-size: 0.71875rem;
+  font-size: 0.898438rem;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -1263,7 +1263,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   background: var(--paper);
   color: var(--ink);
   padding: 0.85em 1em;
-  font-size: 0.9375rem;
+  font-size: 1.17188rem;
   transition: border-color 160ms, box-shadow 160ms;
 }
 .field input:focus, .field textarea:focus {
@@ -1272,7 +1272,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--ember) 35%, transparent);
 }
 .field textarea { min-height: 160px; resize: vertical; }
-.form-note { font-size: 0.75rem; color: var(--leather); }
+.form-note { font-size: 0.9375rem; color: var(--leather); }
 .form-success {
   border: 1px solid var(--ember);
   border-radius: 8px;
@@ -1295,8 +1295,8 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 }
 .join-grid { display: grid; gap: 2rem; align-items: center; }
 @media (min-width: 860px) { .join-grid { grid-template-columns: 5fr 6fr; } }
-.join-grid h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
-.join-grid .blurb { margin-top: 0.6rem; color: var(--paper-dim); font-size: 0.875rem; }
+.join-grid h2 { font-size: clamp(2.25rem, 4.375vw, 3.25rem); }
+.join-grid .blurb { margin-top: 0.6rem; color: var(--paper-dim); font-size: 1.09375rem; }
 .newsletter-form { display: grid; gap: 0.9rem; }
 .newsletter-form .row { display: flex; gap: 0.8rem; flex-wrap: wrap; }
 .newsletter-form input[type="email"] {
@@ -1313,7 +1313,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   border-color: var(--ember);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--ember) 35%, transparent);
 }
-.consent { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.75rem; color: var(--paper-dim); }
+.consent { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.9375rem; color: var(--paper-dim); }
 .consent input { margin-top: 0.25em; accent-color: var(--ember); }
 
 .footer-main { padding-block: clamp(2.5rem, 6vw, 4rem); position: relative; }
@@ -1324,10 +1324,10 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
 }
 @media (min-width: 860px) { .footer-cols { grid-template-columns: 2fr 1fr 1fr 1fr; } }
 .footer-brand img { height: 90px; width: auto; }
-.footer-brand p { margin-top: 1rem; font-size: 0.8125rem; color: var(--paper-dim); max-width: 30ch; }
+.footer-brand p { margin-top: 1rem; font-size: 1.01562rem; color: var(--paper-dim); max-width: 30ch; }
 .footer-col h3 {
   font-family: var(--mono);
-  font-size: 0.71875rem;
+  font-size: 0.898438rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -1335,7 +1335,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   margin-bottom: 1rem;
 }
 .footer-col ul { list-style: none; padding: 0; display: grid; gap: 0.55rem; }
-.footer-col a { text-decoration: none; font-size: 0.8125rem; letter-spacing: 0.04em; }
+.footer-col a { text-decoration: none; font-size: 1.01562rem; letter-spacing: 0.04em; }
 .footer-col a:hover { color: var(--ember); text-decoration: underline; text-underline-offset: 0.3em; }
 
 .footer-legal {
@@ -1345,7 +1345,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   flex-wrap: wrap;
   gap: 0.8rem 2rem;
   justify-content: space-between;
-  font-size: 0.71875rem;
+  font-size: 0.898438rem;
   color: var(--paper-dim);
 }
 .footer-legal ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 1.5rem; }
@@ -1371,7 +1371,7 @@ p, li, blockquote { text-wrap: pretty; } /* orphan control where supported */
   border: 0;
   color: var(--paper);
   font-family: var(--mono);
-  font-size: 0.8125rem;
+  font-size: 1.01562rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   cursor: pointer;
@@ -1432,7 +1432,7 @@ dialog.modal::backdrop { animation: backdrop-in 280ms both; }
 
 /* ---------- Policy / prose pages ---------- */
 .prose { max-width: var(--measure); }
-.prose h2 { font-size: 1.5rem; margin: 2.2rem 0 0.8rem; }
+.prose h2 { font-size: 1.875rem; margin: 2.2rem 0 0.8rem; }
 .prose p + p { margin-top: 0.9rem; }
 .prose ul { padding-left: 1.3em; margin: 0.8rem 0; }
 .prose li + li { margin-top: 0.35rem; }
@@ -1497,7 +1497,7 @@ dialog.modal::backdrop { animation: backdrop-in 280ms both; }
   border-radius: 50%;
   background: transparent;
   color: var(--paper-dim);
-  font-size: 1.25rem;
+  font-size: 1.5625rem;
   line-height: 1;
   cursor: pointer;
   transition: color 160ms var(--ease-out), background 160ms var(--ease-out);
@@ -1506,12 +1506,12 @@ dialog.modal::backdrop { animation: backdrop-in 280ms both; }
 .pop-body { padding: 0.4rem 1.7rem 1.8rem; text-align: center; }
 .pop-body h2 {
   font-family: var(--display);
-  font-size: clamp(1.65rem, 6vw, 2.05rem);
+  font-size: clamp(2.0625rem, 7.5vw, 2.5625rem);
   line-height: 1.1;
   margin: 0 0 0.5rem;
 }
 .pop-body .pop-sub {
-  font-size: 0.875rem;
+  font-size: 1.09375rem;
   line-height: 1.6;
   color: var(--ink-soft);
   margin: 0 auto 1.15rem;
@@ -1525,7 +1525,7 @@ dialog.modal::backdrop { animation: backdrop-in 280ms both; }
   background: var(--paper);
   color: var(--ink);
   padding: 0.85em 1em;
-  font-size: 0.9375rem;
+  font-size: 1.17188rem;
   text-align: center;
 }
 .pop-form input[type="email"]::placeholder { color: var(--leather); }
@@ -1537,7 +1537,7 @@ dialog.modal::backdrop { animation: backdrop-in 280ms both; }
 .pop-form .btn { width: 100%; }
 .pop-fine {
   margin: 0.9rem 0 0;
-  font-size: 0.6875rem;
+  font-size: 0.859375rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--leather);
@@ -1557,10 +1557,86 @@ dialog.modal::backdrop { animation: backdrop-in 280ms both; }
 
 /* Homepage social links */
 .hero-social { padding: 1rem 1.2rem; background: rgba(36,36,36,.82); border: 1px solid rgba(253,252,233,.35); border-radius: 8px; max-width: 100%; }
-.hero-social p { margin: 0 0 .65rem; color: var(--paper); font-size: .75rem; text-transform: uppercase; letter-spacing: .16em; }
+.hero-social p { margin: 0 0 .65rem; color: var(--paper); font-size: 0.9375rem; text-transform: uppercase; letter-spacing: .16em; }
 .hero-social-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
-.hero-social-links a { display: inline-flex; align-items: center; min-height: 44px; padding: .5rem .8rem; border: 1px solid rgba(253,252,233,.5); border-radius: 4px; color: var(--paper); font-size: .8125rem; text-decoration: none; }
+.hero-social-links a { display: inline-flex; align-items: center; min-height: 44px; padding: .5rem .8rem; border: 1px solid rgba(253,252,233,.5); border-radius: 4px; color: var(--paper); font-size: 1.01562rem; text-decoration: none; }
 .hero-social-links a:hover, .hero-social-links a:focus-visible { background: var(--paper); color: var(--ink); }
 
-.hero-booking { padding: .65rem 1rem; background: var(--paper); color: var(--mahogany); border-radius: 4px; font-size: .9375rem; font-weight: 600; }
+.hero-booking { padding: .65rem 1rem; background: var(--paper); color: var(--mahogany); border-radius: 4px; font-size: 1.17188rem; font-weight: 600; }
 .hero-booking a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+.hero-social-links a { gap: .55rem; }
+.hero-social-links svg { width: 24px; height: 24px; flex-shrink: 0; }
+.footer-col a:has(svg) { display: inline-flex; align-items: center; gap: .5rem; }
+.footer-col a svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+/* Keep original typography on phone screens; larger type is desktop-only. */
+@media (max-width: 700px) {
+body { font-size: 0.9375rem; }
+.skip-link { font-size: 0.8125rem; }
+.eyebrow { font-size: 0.75rem; }
+.section-title { font-size: clamp(2.1rem, 4.5vw, 3.4rem); }
+.lede { font-size: 1.0625rem; }
+.btn { font-size: 0.8125rem; }
+.nav-desktop a.nav-link, .nav-desktop button.nav-link { font-size: 0.8125rem; }
+.submenu a { font-size: 0.8125rem; }
+.nav-mobile ul a { font-size: 2rem; }
+.hero-tag { font-size: 0.8125rem; }
+.ribbon .tag { font-size: 0.6875rem; }
+.ribbon p { font-size: 0.875rem; }
+.gig-stub .dow { font-size: 0.625rem; }
+.gig-stub .day { font-size: 1.9rem; }
+.gig-stub .mon { font-size: 0.6875rem; }
+.gig-venue { font-size: clamp(1.7rem, 3.4vw, 2.6rem); }
+.gig-meta { font-size: 0.8125rem; }
+.gig-actions .btn { font-size: 0.71875rem; }
+.gig-month { font-size: 0.75rem; }
+.gig-card .gig-venue { font-size: clamp(1.5rem, 2.4vw, 1.9rem); }
+.yt-title { font-size: 0.8125rem; }
+.feature-kicker { font-size: 1.0625rem; }
+.film-link { font-size: 0.875rem; }
+.single-title { font-size: clamp(2.6rem, 6vw, 4.2rem); }
+.stat .num { font-size: clamp(2.4rem, 5vw, 3.6rem); }
+.stat .label { font-size: 0.71875rem; }
+.product-card .name { font-size: 0.8125rem; }
+.product-card .price { font-size: 0.875rem; }
+.product-info h1 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
+.product-info .price { font-size: 1.25rem; }
+.field select { font-size: 0.9375rem; }
+.product-info .fine { font-size: 0.75rem; }
+.testimonial blockquote { font-size: clamp(1.4rem, 3vw, 2.1rem); }
+.testimonial .who { font-size: 0.75rem; }
+.page-hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); }
+.page-hero .sub { font-size: 0.9375rem; }
+.setlist-nav a { font-size: 0.75rem; }
+.pill-arrow { font-size: 0.9rem; }
+.setlist-search { font-size: 0.875rem; }
+.setlist-genre > h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
+.artist-block h3 { font-size: 0.75rem; }
+.artist-block li { font-size: 0.875rem; }
+.article .kicker { font-size: 0.71875rem; }
+.article h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); }
+.slider-arrow { font-size: 1.1rem; }
+.album-row .meta .year { font-size: 0.8125rem; }
+.album-row .meta h3 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.field label { font-size: 0.71875rem; }
+.field input, .field textarea { font-size: 0.9375rem; }
+.form-note { font-size: 0.75rem; }
+.join-grid h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
+.join-grid .blurb { font-size: 0.875rem; }
+.consent { font-size: 0.75rem; }
+.footer-brand p { font-size: 0.8125rem; }
+.footer-col h3 { font-size: 0.71875rem; }
+.footer-col a { font-size: 0.8125rem; }
+.footer-legal { font-size: 0.71875rem; }
+.modal .close { font-size: 0.8125rem; }
+.prose h2 { font-size: 1.5rem; }
+.pop-close { font-size: 1.25rem; }
+.pop-body h2 { font-size: clamp(1.65rem, 6vw, 2.05rem); }
+.pop-body .pop-sub { font-size: 0.875rem; }
+.pop-form input[type="email"] { font-size: 0.9375rem; }
+.pop-fine { font-size: 0.6875rem; }
+.hero-social p { font-size: .75rem; }
+.hero-social-links a { font-size: .8125rem; }
+.hero-booking { font-size: .9375rem; }
+}
