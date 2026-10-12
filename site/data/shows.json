@@ -1,5 +1,5 @@
 {
-  "_readme": "One object per show. Past shows disappear from the site automatically \u2014 no need to delete them right away. Fields: venue (name shown big), city, date (YYYY-MM-DD), startTime24 / endTime24 (24-hour clock, endTime24 optional), address (full street address, used for the Directions link and calendar), note (one short line shown under the venue), image (path under /assets/img/shows/, optional), rsvpUrl (optional external RSVP/tickets link).",
+  "_readme": "One object per show. Past shows disappear from the site automatically — no need to delete them right away. Fields: venue (name shown big), city, date (YYYY-MM-DD), startTime24 / endTime24 (24-hour clock, endTime24 optional), address (full street address, used for the Directions link and calendar), note (one short line shown under the venue), image (path under /assets/img/shows/, optional), rsvpUrl (optional external RSVP/tickets link).",
   "shows": [
     {
       "venue": "Dockside Cafe",
@@ -94,6 +94,15 @@
       "address": "129 W Market St, Sandusky, OH 44870",
       "note": "Join me at J Bistro on Witches Walk night in Sandusky!",
       "image": "/assets/img/shows/witches-walk-j-bistro.png"
+    },
+    {
+      "venue": "CODA",
+      "city": "Tremont / Cleveland",
+      "date": "2026-11-28",
+      "startTime24": "20:00",
+      "address": "2247 Professor Ave, Cleveland, OH 44113",
+      "note": "Live album release party featuring a live performance by Galen Marten!",
+      "image": "/assets/img/shows/coda-album-release.png"
     }
   ]
 }
