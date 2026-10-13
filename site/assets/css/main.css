@@ -1640,3 +1640,17 @@ body { font-size: 0.9375rem; }
 .hero-social-links a { font-size: .8125rem; }
 .hero-booking { font-size: .9375rem; }
 }
+
+/* Compact social row anchored to the bottom of the homepage photo. */
+.hero-inner { padding-bottom: 11rem; }
+.hero-social { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); width: max-content; max-width: calc(100% - 2rem); padding: .7rem 1rem; z-index: 2; }
+.hero-social p { font-size: .75rem; margin-bottom: .5rem; }
+.hero-social-links { flex-wrap: nowrap; gap: .7rem; }
+.hero-social-links a { width: 44px; height: 44px; padding: 0; justify-content: center; border-radius: 50%; }
+.hero-social-links svg { width: 22px; height: 22px; }
+.hero-social-links span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 700px) {
+ .hero-social { padding: .65rem .8rem; bottom: 2rem; }
+ .hero-social-links { gap: .5rem; }
+ .hero-inner { padding-bottom: 10rem; }
+}
