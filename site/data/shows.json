@@ -103,6 +103,14 @@
       "address": "2247 Professor Ave, Cleveland, OH 44113",
       "note": "Live album release party featuring a live performance by Galen Marten!",
       "image": "/assets/img/shows/coda-album-release.png"
+    },
+    {
+      "venue": "South Shore Marine",
+      "city": "Huron, Ohio",
+      "date": "2026-12-05",
+      "startTime24": "12:00",
+      "note": "Private event",
+      "image": "/assets/img/shows/south-shore-marine-christmas-2026.png"
     }
   ]
 }
