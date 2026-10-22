@@ -555,7 +555,7 @@
     // pages where asking would be redundant or rude
     var path = location.pathname;
     if (!force) {
-      if (/\/contact\/|\/merch\/thanks\//.test(path)) return;
+      if (/\/contact\/|\/epk(?:\/|$)|\/merch\/thanks\//.test(path)) return;
       if (stored(KEY_DONE)) return;
       var snoozed = parseInt(stored(KEY_SNOOZE) || '0', 10);
       if (snoozed && Date.now() < snoozed) return;
