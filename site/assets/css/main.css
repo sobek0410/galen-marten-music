@@ -1654,3 +1654,12 @@ body { font-size: 0.9375rem; }
  .hero-social-links { gap: .5rem; }
  .hero-inner { padding-bottom: 10rem; }
 }
+
+/* Featured CODA poster: preserve the complete approved artwork. */
+.event-feature { display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); gap:clamp(1.5rem, 5vw, 4rem); align-items:center; margin:2rem 0 4rem; }
+.event-poster { display:block; width:100%; max-width:540px; }
+.event-poster img { display:block; width:100%; height:auto; border-radius:8px; }
+.event-feature h2 { font-family:var(--display); font-size:clamp(2rem, 4vw, 3.25rem); line-height:1.12; margin-bottom:1.25rem; }
+.event-feature p { margin-bottom:1rem; }
+.gig-art img[src$="rock-tales-and-cocktails-2026.webp"], .gig-card .card-media img[src$="rock-tales-and-cocktails-2026.webp"] { aspect-ratio:2 / 3; object-fit:contain; }
+@media (max-width:700px) { .event-feature { grid-template-columns:1fr; } .event-poster { margin-inline:auto; } }
