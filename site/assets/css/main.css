@@ -1663,3 +1663,5 @@ body { font-size: 0.9375rem; }
 .event-feature p { margin-bottom:1rem; }
 .gig-art img[src$="rock-tales-and-cocktails-2026.webp"], .gig-card .card-media img[src$="rock-tales-and-cocktails-2026.webp"] { aspect-ratio:2 / 3; object-fit:contain; }
 @media (max-width:700px) { .event-feature { grid-template-columns:1fr; } .event-poster { margin-inline:auto; } }
+/* The six 2027 thumbnails already print their dates; keep the calendar badge from covering their venue names. */
+.gig-card .card-media img[src*="-2027-"] + .gig-stub { display:none; }
