@@ -120,7 +120,8 @@
       "startTime24": "18:00",
       "address": "38 Main St, Huron, OH 44839",
       "note": "Live music with Galen Marten, one-man band.",
-      "image": "/assets/img/shows/pier-pub-2027-03-20.webp"
+      "image": "/assets/img/shows/pier-pub-2027-03-20.webp",
+      "endTime24": "21:00"
     },
     {
       "venue": "Pier Pub",
@@ -129,7 +130,8 @@
       "startTime24": "18:00",
       "address": "38 Main St, Huron, OH 44839",
       "note": "Live music with Galen Marten, one-man band.",
-      "image": "/assets/img/shows/pier-pub-2027-04-25.webp"
+      "image": "/assets/img/shows/pier-pub-2027-04-25.webp",
+      "endTime24": "21:00"
     },
     {
       "venue": "Dockers Waterfront Bar & Restaurant",
@@ -158,7 +160,8 @@
       "startTime24": "18:00",
       "address": "38 Main St, Huron, OH 44839",
       "note": "Live music with Galen Marten, one-man band.",
-      "image": "/assets/img/shows/pier-pub-2027-06-13.webp"
+      "image": "/assets/img/shows/pier-pub-2027-06-13.webp",
+      "endTime24": "21:00"
     },
     {
       "venue": "Dockers Waterfront Bar & Restaurant",
