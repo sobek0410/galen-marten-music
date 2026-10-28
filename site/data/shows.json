@@ -101,8 +101,9 @@
       "date": "2026-11-28",
       "startTime24": "20:00",
       "address": "2247 Professor Ave, Cleveland, OH 44113",
-      "note": "Live album release party featuring a live performance by Galen Marten!",
-      "image": "/assets/img/shows/coda-album-release.png"
+      "note": "RockTales and Cocktails with Galen Marten, one-man band. Doors open at 7 p.m.; show 8–10 p.m. Your $20 ticket includes pizza and your first drink. Buy your tickets on Eventbrite today. Sponsored by Lion’s Share Spirits.",
+      "endTime24": "22:00",
+      "image": "/assets/img/shows/rock-tales-and-cocktails-2026.webp"
     },
     {
       "venue": "South Shore Marine",
@@ -111,6 +112,63 @@
       "startTime24": "12:00",
       "note": "Private event",
       "image": "/assets/img/shows/south-shore-marine-christmas-2026.png"
+    },
+    {
+      "venue": "Pier Pub",
+      "city": "Huron, Ohio",
+      "date": "2027-03-20",
+      "startTime24": "18:00",
+      "address": "38 Main St, Huron, OH 44839",
+      "note": "Live music with Galen Marten, one-man band.",
+      "image": "/assets/img/shows/pier-pub-2027-03-20.webp"
+    },
+    {
+      "venue": "Pier Pub",
+      "city": "Huron, Ohio",
+      "date": "2027-04-25",
+      "startTime24": "18:00",
+      "address": "38 Main St, Huron, OH 44839",
+      "note": "Live music with Galen Marten, one-man band.",
+      "image": "/assets/img/shows/pier-pub-2027-04-25.webp"
+    },
+    {
+      "venue": "Dockers Waterfront Bar & Restaurant",
+      "city": "Kelleys Island",
+      "date": "2027-05-29",
+      "startTime24": "18:00",
+      "endTime24": "21:00",
+      "address": "114 W Lakeshore Dr, Kelleys Island, OH 43438",
+      "note": "Live music with Galen Marten, one-man band.",
+      "image": "/assets/img/shows/dockers-2027-05-29.webp"
+    },
+    {
+      "venue": "Dockers Waterfront Bar & Restaurant",
+      "city": "Kelleys Island",
+      "date": "2027-06-12",
+      "startTime24": "18:00",
+      "endTime24": "21:00",
+      "address": "114 W Lakeshore Dr, Kelleys Island, OH 43438",
+      "note": "Live music with Galen Marten, one-man band.",
+      "image": "/assets/img/shows/dockers-2027-06-12.webp"
+    },
+    {
+      "venue": "Pier Pub",
+      "city": "Huron, Ohio",
+      "date": "2027-06-13",
+      "startTime24": "18:00",
+      "address": "38 Main St, Huron, OH 44839",
+      "note": "Live music with Galen Marten, one-man band.",
+      "image": "/assets/img/shows/pier-pub-2027-06-13.webp"
+    },
+    {
+      "venue": "Dockers Waterfront Bar & Restaurant",
+      "city": "Kelleys Island",
+      "date": "2027-07-31",
+      "startTime24": "18:00",
+      "endTime24": "21:00",
+      "address": "114 W Lakeshore Dr, Kelleys Island, OH 43438",
+      "note": "Live music with Galen Marten, one-man band.",
+      "image": "/assets/img/shows/dockers-2027-07-31.webp"
     }
   ]
 }
