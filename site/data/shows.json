@@ -103,7 +103,9 @@
       "address": "2247 Professor Ave, Cleveland, OH 44113",
       "note": "RockTales and Cocktails with Galen Marten, one-man band. Doors open at 7 p.m.; show 8–10 p.m. Your $20 ticket includes pizza and your first drink. Buy your tickets on Eventbrite today. Sponsored by Lion’s Share Spirits.",
       "endTime24": "22:00",
-      "image": "/assets/img/shows/rock-tales-and-cocktails-2026.webp"
+      "image": "/assets/img/shows/rock-tales-and-cocktails-2026.webp",
+      "rsvpUrl": "https://www.eventbrite.com/e/rocktales-and-cocktails-with-galen-marten-at-coda-tickets-2004077620110",
+      "rsvpLabel": "Buy tickets"
     },
     {
       "venue": "South Shore Marine",
@@ -175,3 +177,4 @@
     }
   ]
 }
+
