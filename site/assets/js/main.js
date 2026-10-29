@@ -286,7 +286,7 @@
 
   function gigActionsHtml(show) {
     return '<div class="gig-actions">' +
-      (show.rsvpUrl ? '<a class="btn btn-dark" href="' + esc(show.rsvpUrl) + '" target="_blank" rel="noopener">RSVP</a>' : '') +
+      (show.rsvpUrl ? '<a class="btn btn-dark" href="' + esc(show.rsvpUrl) + '" target="_blank" rel="noopener">' + esc(show.rsvpLabel || 'RSVP') + '</a>' : '') +
       '<a class="btn btn-dark" href="' + gcalUrl(show) + '" target="_blank" rel="noopener">Add to calendar</a>' +
       '<a class="btn btn-quiet" href="' + mapsUrl(show) + '" target="_blank" rel="noopener">Directions</a>' +
     '</div>';
@@ -653,3 +653,4 @@
   var yr = d.getElementById('year');
   if (yr) yr.textContent = String(new Date().getFullYear());
 })();
+
