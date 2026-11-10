@@ -174,7 +174,17 @@
       "address": "114 W Lakeshore Dr, Kelleys Island, OH 43438",
       "note": "Live music with Galen Marten, one-man band.",
       "image": "/assets/img/shows/dockers-2027-07-31.webp"
+    },
+    {
+      "venue": "The Venue at Rooted Souls",
+      "city": "Marblehead, Ohio",
+      "date": "2026-11-27",
+      "startTime24": "18:30",
+      "address": "5826 E. Harbor Road, Marblehead, OH 43452",
+      "note": "Cabin Fever Comedy Series featuring live music by Galen Marten, Lisa Red (MC & comedian), Ryan Rogers and Greg Spilson. Doors open/music at 6:30 p.m.; show starts at 7 p.m.; comedy at 8 p.m. Tickets $20. Cash bar available. Seats/tables first come, first served. For tickets and information, call Rose at (440) 223-7673.",
+      "image": "/assets/img/shows/cabin-fever-2026-11-27.webp",
+      "rsvpUrl": "https://soulstretchyogaandcycle.com/events",
+      "rsvpLabel": "Event information"
     }
   ]
 }
-
