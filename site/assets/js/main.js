@@ -7,6 +7,19 @@
 
   var d = document;
 
+  /* Video production is available from About and the mobile menu. */
+  d.querySelectorAll('.nav-desktop .submenu, .nav-mobile > ul').forEach(function (menu) {
+    var bio = menu.querySelector('a[href="/about/"]');
+    if (!bio || menu.querySelector('a[href="/video-production/"]')) return;
+    var item = d.createElement('li');
+    var link = d.createElement('a');
+    link.href = '/video-production/';
+    link.textContent = 'Video Production';
+    item.appendChild(link);
+    bio.parentElement.insertAdjacentElement('afterend', item);
+  });
+
+
   /* ---------- Mobile nav ---------- */
   var toggle = d.querySelector('.nav-toggle');
   if (toggle) {
