@@ -16,7 +16,8 @@
     link.href = '/video-production/';
     link.textContent = 'Video Production';
     item.appendChild(link);
-    bio.parentElement.insertAdjacentElement('afterend', item);
+    var news = menu.querySelector('a[href="/news/"]');
+    (news || bio).parentElement.insertAdjacentElement('afterend', item);
   });
 
 
