@@ -116,6 +116,16 @@
       "image": "/assets/img/shows/south-shore-marine-christmas-2026.png"
     },
     {
+      "venue": "Logan’s Irish Pub",
+      "city": "Findlay, Ohio",
+      "date": "2027-01-08",
+      "startTime24": "19:00",
+      "endTime24": "22:00",
+      "address": "414 S. Main St., Findlay, OH 45840",
+      "note": "Galen and Andy Duo",
+      "image": "/assets/img/shows/logans-irish-pub-2027-01-08.webp"
+    },
+    {
       "venue": "Pier Pub",
       "city": "Huron, Ohio",
       "date": "2027-03-20",
